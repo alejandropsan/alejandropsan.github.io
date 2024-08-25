@@ -16,7 +16,7 @@ a{
 
 body {
     background-color: rgba(0, 1, 44, 0.973);
-    color: #ececec;
+    color: 020202;
 }
 
 header{
@@ -43,7 +43,7 @@ main {
     float: left;
     border: 3px solid #fff;
     border-radius: 10px;
-    background-color: #d4cdc5;
+    background-color: #ffffff;
     box-shadow: 0px 0px 10px #f0f0f0;
     width: 75%;
 }
@@ -54,7 +54,7 @@ main {
     border: 3px solid #fff;
     border-radius: 10px;
     min-height: fit-content;
-    background-color: #bdb8ad;
+    background-color: #ffffff;
 }
 
 /* INICIO */
@@ -153,8 +153,10 @@ main {
 }
 
 #btn-apsan {
+    position: relative;
+    top: 54px;
     margin-top: 50px;
-    margin-left: 60%;
+    margin-left: 55%;
     margin-right: auto;
     transition: transform 300ms;
 }
@@ -227,7 +229,7 @@ header .logotipo img{
 .navegacion-nav ul li > ul{
     display: none;
     position: absolute;
-    width: 200px;
+    width: 35%;
     z-index: 1;
 }
 
