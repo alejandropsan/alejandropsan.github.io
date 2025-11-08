@@ -1,74 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web apsan.dev</title>
+    <title>Contacto - apsan.dev</title>
     <!-- BOOTSTRAP 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
-    <header>
-        <div class="navegacion">
-            <nav class="navegacion navegacion-nav">
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../home.html">Home</a></li>
-                    <li><a href="../web/web.html">Desarrollo web</a></li>
-                    <li><a href="../mobile/mobile.html">Desarrollo Móvil</a></li>
-                    <li><a href="../desktop/desktop.html">Desarrollo Desktop</a></li>
-                    <li><a href="../videogames/videogames.html">Desarrollo videojuegos</a></li>
-                    <li><a href="../adminsystems/adminsystems.html">Administración de sistemas</a></li>
-                    <li><a href="../oscp/oscp.html">OSCP</a></li>
-                    <li><a href="../sobremi.html">Sobre Mí</a></li>
-                    <li><a href="../contacto.html">Contacto</a></li>
-                </ul>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../images/logo.png" alt="Logo" class="logo-img">
+                <span class="logo-highlight">apsan</span>.dev
+            </a>
+            <nav class="nav-menu">
+                <a href="../index.html" class="nav-link">Inicio</a>
+                <a href="../home.html" class="nav-link">Home</a>
+                <a href="../web/web.html" class="nav-link">Desarrollo web</a>
+                <a href="../mobile/mobile.html" class="nav-link">Desarrollo Móvil</a>
+                <a href="../adminsystems/adminsystems.html" class="nav-link">Administración de sistemas</a>
+                <a href="../oscp/oscp.html" class="nav-link">OSCP</a>
+                <a href="../sobremi.html" class="nav-link">Sobre Mí</a>
+                <a href="../contacto.html" class="nav-link">Contacto</a>
             </nav>
         </div>
-
-        
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="../home.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Contacto</li>
-                </ol>
-              </nav>
-        
-        
     </header>
 
-    <div class="separador"></div>
-    <main>
+    <section class="page-hero">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="../home.html">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Contacto</li>
+            </ol>
+        </nav>
+        <h1 class="page-title">
+            <span class="page-title-main">Contacto</span>
+        </h1>
+        <p class="page-subtitle">
+            Ponte en contacto conmigo para cualquier consulta o sugerencia.
+        </p>
+    </section>
+
+    <main class="main-content">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h2>Contacto</h2>
-                    <form action="enviar.php" method="post">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
+                    <section class="contact-form">
+                        <h2 class="section-title">Formulario de contacto</h2>
+                        <div class="section-line"></div>
+                        <form action="enviar.php" method="post">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="mensaje" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                        </form>
+                    </section>
                 </div>
                 <div class="col-md-6">
-                    <h2>Información de contacto</h2>
-                    <p>Si tienes alguna duda o sugerencia, no dudes en contactar conmigo.</p>
-                    <p><strong>Email: </strong><a href="mailto:alejandropsan1@gmail.com" class="mail">alejandropsan1@gmail.com</a>
+                    <section class="contact-info">
+                        <h2 class="section-title">Información de contacto</h2>
+                        <div class="section-line"></div>
+                        <p>Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo.</p>
+                        <ul>
+                            <li><strong>Email:</strong> <a href="mailto:alejandropsan1@gmail.com">alejandropsan1@gmail.com</a></li>
+                            <li><strong>Teléfono:</strong> +34 603384402</li>
+                            <li><strong>Dirección:</strong> Elche, España</li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
         </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">Apsan.dev</a>
+                    <p class="footer-description">
+                        Ingeniero Informático especializado en desarrollo web y ciberseguridad. Compartiendo conocimiento técnico y experiencias.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/alejandropsan/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/alejandropsan" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/Alex_Periago/" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Sobre mí</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, Country</li>
+                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@example.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2025 Apsan.dev. Todos los derechos reservados.
+                </p>
+                <div class="footer-meta">
+                    <a href="#">Términos de uso</a>
+                    <a href="#">Política de privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="../main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
