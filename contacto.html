@@ -10,6 +10,63 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="../style.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("h6rPSulTGqeoBxMj4");
+        })();
+    </script>
+    <script>
+        window.onload = function() {
+            document.getElementById('form_load_time').value = new Date().getTime();
+        };
+        let keyboardInputDetected = false;
+
+        document.getElementById('nombre').addEventListener('keydown', function() {
+            keyboardInputDetected = true;
+        });
+        function sendEmail() {
+            const spamCheck = document.getElementById('spam_check').value;
+            const formLoadTime = document.getElementById('form_load_time').value;
+            const submissionTime = new Date().getTime();
+            const timeDiff = submissionTime - formLoadTime;
+
+            if (spamCheck !== '' || timeDiff < 500 || !keyboardInputDetected) {
+                console.log('Bot detected!');
+                alert('Error: Mensaje no enviado.');
+                return false;
+            }
+
+            if (spamCheck !== '') {
+                console.log('Bot detected!');
+                alert('Error: Mensaje no enviado.');
+                return false;
+            }
+
+            const name = encodeURIComponent(document.getElementById('nombre').value);
+            const email = encodeURIComponent(document.getElementById('email').value);
+            const message = encodeURIComponent(document.getElementById('mensaje').value);
+
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                message: message
+            };
+
+            emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Mensaje enviado correctamente!');
+                    document.getElementById('nombre').value = '';
+                    document.getElementById('email').value = '';
+                    document.getElementById('mensaje').value = '';
+                }, function (error) {
+                    console.log('FAILED...', error);
+                    alert('Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.');
+                });
+            return false;
+        }
+    </script>
 </head>
 
 <body>
@@ -55,7 +112,12 @@
                     <section class="contact-form">
                         <h2 class="section-title">Formulario de contacto</h2>
                         <div class="section-line"></div>
-                        <form action="enviar.php" method="post">
+                        <form onsubmit="return sendEmail();">
+                            <div style="display:none;">
+                                <label for="spam_check">Cliente:</label>
+                                <input type="text" id="spam_check" name="spam_check">
+                                <input type="hidden" id="form_load_time" name="form_load_time" value="">
+                            </div>
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">Nombre</label>
                                 <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -79,7 +141,7 @@
                         <p>Si tienes alguna pregunta o sugerencia, no dudes en ponerte en contacto conmigo.</p>
                         <ul>
                             <li><strong>Email:</strong> <a href="mailto:alejandropsan1@gmail.com">alejandropsan1@gmail.com</a></li>
-                            <li><strong>Teléfono:</strong> +34 603384402</li>
+                            <li><strong>Teléfono:</strong> +34 666 555 444</li>
                             <li><strong>Dirección:</strong> Elche, España</li>
                         </ul>
                     </section>
@@ -97,9 +159,12 @@
                         Ingeniero Informático especializado en desarrollo web y ciberseguridad. Compartiendo conocimiento técnico y experiencias.
                     </p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/alejandropsan/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/alejandropsan" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://x.com/Alex_Periago/" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/alejandropsan/" class="social-link" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/alejandropsan" class="social-link" target="_blank"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://x.com/Alex_Periago/" class="social-link" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
