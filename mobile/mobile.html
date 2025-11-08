@@ -4,48 +4,699 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web apsan.dev</title>
-    <!-- BOOTSTRAP 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <title>Desarrollo Móvil - apsan.dev</title>
     <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="navegacion">
-            <nav class="navegacion navegacion-nav">
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="../home.html">Home</a></li>
-                    <li><a href="../web/web.html">Desarrollo web</a></li>
-                    <li><a href="../mobile/mobile.html">Desarrollo Móvil</a></li>
-                    <li><a href="../desktop/desktop.html">Desarrollo Desktop</a></li>
-                    <li><a href="../videogames/videogames.html">Desarrollo videojuegos</a></li>
-                    <li><a href="../adminsystems/adminsystems.html">Administración de sistemas</a></li>
-                    <li><a href="../devops/devops.html">DevOps</a></li>
-                    <li><a href="../sobremi.html">Sobre Mí</a></li>
-                    <li><a href="../contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
+    <!-- Navegación -->
+    <nav id="navbar" class="navbar" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span>APSAN</span><span class="logo-highlight">.dev</span>
+            </a>
+            <ul id="navMenu" class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="../home.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../web/web.html" class="nav-link">Desarrollo Web</a></li>
+                <li class="nav-item"><a href="../mobile/mobile.html" class="nav-link">Desarrollo Móvil</a></li>
+                <li class="nav-item"><a href="../adminsystems/adminsystems.html" class="nav-link">Admin Sistemas</a></li>
+                <li class="nav-item"><a href="../oscp/oscp.html" class="nav-link">OSCP</a></li>
+                <li class="nav-item"><a href="../sobremi.html" class="nav-link">Sobre Mí</a></li>
+                <li class="nav-item"><a href="../contacto.html" class="nav-link nav-link-cta">Contacto</a></li>
+            </ul>
+            <button id="hamburger" type="button" class="hamburger" aria-label="Menú de navegación">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
+    </nav>
 
-        
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="../home.html">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Desarrollo Móvil</li>
-                </ol>
-              </nav>
-        
-        
-    </header>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../index.html">Inicio</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../home.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Desarrollo Móvil</span>
+        </nav>
+        <h1 class="page-title">
+            <span class="page-title-main">Desarrollo Móvil</span>
+        </h1>
+        <p class="page-subtitle">Crea aplicaciones móviles nativas y multiplataforma para iOS y Android</p>
+    </section>
 
-    <div class="separador"></div>
-    <main>
+    <!-- Contenido Principal -->
+    <main class="main-content">
         <div class="container">
+            <!-- Introducción -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">Bienvenido a Desarrollo Móvil</h2>
+                    <div class="section-line"></div>
+                </div>
 
+                <div class="card-description article-intro">
+                    <p>El desarrollo móvil es una de las áreas más dinámicas y demandadas de la industria tecnológica. Con miles de millones de usuarios de smartphones en todo el mundo, crear aplicaciones móviles efectivas es esencial para cualquier negocio digital. Aquí encontrarás guías completas sobre desarrollo nativo, frameworks multiplataforma y las mejores prácticas de la industria.</p>
+                </div>
+            </section>
+
+            <!-- Secciones de Contenido -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">Tecnologías y Frameworks</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="cards-grid">
+                    <!-- Card: Desarrollo Nativo iOS -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <path d="M12 18h.01"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">iOS</span>
+                            <h3 class="card-title">Desarrollo Nativo iOS</h3>
+                            <p class="card-description">
+                                Swift y SwiftUI para crear aplicaciones nativas de iOS. Aprende desde
+                                UIKit hasta las últimas funcionalidades de iOS con diseño moderno.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Swift</li>
+                                <li>SwiftUI</li>
+                                <li>Xcode</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Desarrollo Nativo Android -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                <line x1="12" y1="18" x2="12" y2="18"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Android</span>
+                            <h3 class="card-title">Desarrollo Nativo Android</h3>
+                            <p class="card-description">
+                                Kotlin y Jetpack Compose para desarrollo Android moderno. Material Design,
+                                arquitectura MVVM y las mejores prácticas de Google.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Kotlin</li>
+                                <li>Jetpack Compose</li>
+                                <li>Android Studio</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: React Native -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 18L22 12L16 6M8 6L2 12L8 18"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Multiplataforma</span>
+                            <h3 class="card-title">React Native</h3>
+                            <p class="card-description">
+                                Desarrolla apps para iOS y Android con JavaScript y React. Componentes
+                                nativos, navegación, estado global y integración con APIs.
+                            </p>
+                            <ul class="card-tags">
+                                <li>React Native</li>
+                                <li>Expo</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Flutter -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Multiplataforma</span>
+                            <h3 class="card-title">Flutter</h3>
+                            <p class="card-description">
+                                Framework de Google para crear apps hermosas y de alto rendimiento.
+                                Dart, widgets personalizados y compilación nativa.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Flutter</li>
+                                <li>Dart</li>
+                                <li>Material/Cupertino</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Ionic/Capacitor -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Híbrido</span>
+                            <h3 class="card-title">Ionic y Capacitor</h3>
+                            <p class="card-description">
+                                Crea apps híbridas con tecnologías web. Ionic Framework, Capacitor
+                                para acceso nativo y Angular/React/Vue como base.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Ionic</li>
+                                <li>Capacitor</li>
+                                <li>Cordova</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: UI/UX Móvil -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">UI/UX Móvil</h3>
+                            <p class="card-description">
+                                Principios de diseño móvil, patrones de navegación, gestos táctiles
+                                y adaptación a diferentes tamaños de pantalla.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Material Design</li>
+                                <li>Human Interface</li>
+                                <li>Responsive</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: APIs Nativas -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">APIs Nativas y Plugins</h3>
+                            <p class="card-description">
+                                Acceso a funcionalidades del dispositivo: cámara, GPS, notificaciones,
+                                almacenamiento local, biometría y más.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Camera</li>
+                                <li>Geolocation</li>
+                                <li>Push Notifications</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Testing Móvil -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                                <path d="M22 4L12 14.01l-3-3"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">Testing y Debugging</h3>
+                            <p class="card-description">
+                                Unit testing, integration testing, E2E con Detox, Appium.
+                                Debugging, profiling y análisis de crashes.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Jest</li>
+                                <li>Detox</li>
+                                <li>Firebase Crashlytics</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Performance -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">Performance y Optimización</h3>
+                            <p class="card-description">
+                                Optimización de rendimiento, gestión de memoria, lazy loading,
+                                reducción de tamaño de APK/IPA y mejora de tiempo de carga.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Memory Profiling</li>
+                                <li>Code Splitting</li>
+                                <li>Bundle Size</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Backend y Servicios -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                <path d="M6 6h.01M6 18h.01"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">Backend y Servicios</h3>
+                            <p class="card-description">
+                                Integración con Firebase, Supabase, AWS Amplify. APIs REST,
+                                GraphQL, autenticación, almacenamiento en la nube.
+                            </p>
+                            <ul class="card-tags">
+                                <li>Firebase</li>
+                                <li>Supabase</li>
+                                <li>REST/GraphQL</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Publicación -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">Publicación en Stores</h3>
+                            <p class="card-description">
+                                Proceso completo de publicación en App Store y Google Play.
+                                Certificados, screenshots, metadata, y estrategias ASO.
+                            </p>
+                            <ul class="card-tags">
+                                <li>App Store</li>
+                                <li>Google Play</li>
+                                <li>ASO</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                    <!-- Card: Monetización -->
+                    <article class="feature-card" data-animate>
+                        <div class="card-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-badge">Próximamente</span>
+                            <h3 class="card-title">Monetización</h3>
+                            <p class="card-description">
+                                Estrategias de monetización: compras in-app, suscripciones,
+                                publicidad con AdMob, freemium y modelos de negocio.
+                            </p>
+                            <ul class="card-tags">
+                                <li>In-App Purchases</li>
+                                <li>AdMob</li>
+                                <li>Subscriptions</li>
+                            </ul>
+                        </div>
+                        <a href="#" class="card-link">
+                            Próximamente
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Comparativa de Tecnologías -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">¿Qué Tecnología Elegir?</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h4 class="feature-box-title">Desarrollo Nativo</h4>
+                        <p class="feature-box-text">Mejor opción para apps de alto rendimiento y acceso completo a APIs del sistema.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--primary);">Ventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Máximo rendimiento</li>
+                                <li>Acceso a todas las APIs nativas</li>
+                                <li>Mejor experiencia de usuario</li>
+                                <li>Actualizaciones tempranas de plataforma</li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--secondary);">Desventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Desarrollo separado para iOS/Android</li>
+                                <li>Mayor tiempo de desarrollo</li>
+                                <li>Equipos especializados necesarios</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="feature-box secondary">
+                        <h4 class="feature-box-title">React Native</h4>
+                        <p class="feature-box-text">Ideal para equipos con experiencia en React y JavaScript que buscan desarrollo multiplataforma.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--primary);">Ventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Código compartido entre plataformas</li>
+                                <li>Gran ecosistema y comunidad</li>
+                                <li>Hot reload para desarrollo rápido</li>
+                                <li>Respaldado por Meta/Facebook</li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--secondary);">Desventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Puede requerir código nativo ocasional</li>
+                                <li>Performance inferior al nativo puro</li>
+                                <li>Dependencia de librerías de terceros</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4 class="feature-box-title">Flutter</h4>
+                        <p class="feature-box-text">Excelente para apps con interfaces complejas y animaciones fluidas.</p>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--primary);">Ventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Rendimiento cercano al nativo</li>
+                                <li>UI consistente entre plataformas</li>
+                                <li>Hot reload ultra rápido</li>
+                                <li>Respaldado por Google</li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <strong style="color: var(--secondary);">Desventajas:</strong>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+                                <li>Curva de aprendizaje de Dart</li>
+                                <li>Apps más pesadas</li>
+                                <li>Ecosistema más pequeño que React Native</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recursos Recomendados -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recursos y Herramientas</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-box">
+                        <h4 class="feature-box-title">IDEs y Herramientas</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Android Studio</strong> - IDE oficial para Android</li>
+                            <li><strong>Xcode</strong> - IDE oficial para iOS/macOS</li>
+                            <li><strong>VS Code</strong> - Editor para React Native/Flutter</li>
+                            <li><strong>Expo</strong> - Plataforma para React Native</li>
+                            <li><strong>FlutterFlow</strong> - Constructor visual para Flutter</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box secondary">
+                        <h4 class="feature-box-title">Servicios Backend</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Firebase</strong> - Backend completo de Google</li>
+                            <li><strong>Supabase</strong> - Alternativa open source a Firebase</li>
+                            <li><strong>AWS Amplify</strong> - Servicios cloud de Amazon</li>
+                            <li><strong>Back4App</strong> - Backend as a Service</li>
+                            <li><strong>MongoDB Realm</strong> - Base de datos móvil</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4 class="feature-box-title">Recursos de Aprendizaje</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Apple Developer</strong> - Documentación oficial iOS</li>
+                            <li><strong>Android Developers</strong> - Docs oficiales Android</li>
+                            <li><strong>React Native Docs</strong> - Documentación completa</li>
+                            <li><strong>Flutter Docs</strong> - Guías y tutoriales</li>
+                            <li><strong>Ray Wenderlich</strong> - Tutoriales premium</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box secondary">
+                        <h4 class="feature-box-title">Testing y Analytics</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Firebase Analytics</strong> - Análisis de comportamiento</li>
+                            <li><strong>TestFlight</strong> - Beta testing para iOS</li>
+                            <li><strong>Google Play Console</strong> - Testing Android</li>
+                            <li><strong>Detox</strong> - E2E testing React Native</li>
+                            <li><strong>Appium</strong> - Testing multiplataforma</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h4 class="feature-box-title">Diseño y UI</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Figma</strong> - Diseño de interfaces</li>
+                            <li><strong>Sketch</strong> - Herramienta de diseño macOS</li>
+                            <li><strong>Material Design</strong> - Sistema de diseño Google</li>
+                            <li><strong>Human Interface Guidelines</strong> - Guías de Apple</li>
+                            <li><strong>Lottie</strong> - Animaciones avanzadas</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box secondary">
+                        <h4 class="feature-box-title">Comunidades</h4>
+                        <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <li><strong>Stack Overflow</strong> - Preguntas y respuestas</li>
+                            <li><strong>r/reactnative</strong> - Comunidad React Native</li>
+                            <li><strong>r/FlutterDev</strong> - Comunidad Flutter</li>
+                            <li><strong>iOS Dev Reddit</strong> - Desarrolladores iOS</li>
+                            <li><strong>Android Dev Discord</strong> - Chat de Android</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roadmap de Aprendizaje -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title">Roadmap de Aprendizaje</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <article class="feature-card" data-animate>
+                    <div class="card-content">
+                        <h3 class="card-title">Tu Camino en el Desarrollo Móvil</h3>
+                        <p class="card-description">Una guía paso a paso para convertirte en desarrollador móvil profesional.</p>
+                    </div>
+
+                    <div class="article-section">
+                        <h4 class="widget-title">Nivel 1: Fundamentos</h4>
+                        <div class="reference-grid">
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">Conceptos Básicos</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>Ciclo de vida de aplicaciones móviles</li>
+                                    <li>Navegación y arquitectura de apps</li>
+                                    <li>Gestión de estado</li>
+                                    <li>Networking y APIs REST</li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">Lenguajes de Programación</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>JavaScript/TypeScript (React Native)</li>
+                                    <li>Dart (Flutter)</li>
+                                    <li>Swift (iOS nativo)</li>
+                                    <li>Kotlin (Android nativo)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-section">
+                        <h4 class="widget-title">Nivel 2: Intermedio</h4>
+                        <div class="reference-grid">
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">UI/UX Avanzado</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>Animaciones y transiciones</li>
+                                    <li>Gestos y touch events</li>
+                                    <li>Responsive design móvil</li>
+                                    <li>Modo oscuro y temas</li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">Persistencia de Datos</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>SQLite local</li>
+                                    <li>AsyncStorage/SharedPreferences</li>
+                                    <li>Realm Database</li>
+                                    <li>Cloud Firestore</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-section">
+                        <h4 class="widget-title">Nivel 3: Avanzado</h4>
+                        <div class="reference-grid">
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">Optimización</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>Profiling y memory leaks</li>
+                                    <li>Code splitting y lazy loading</li>
+                                    <li>Optimización de imágenes</li>
+                                    <li>Reducción de bundle size</li>
+                                </ul>
+                            </div>
+
+                            <div class="sidebar-widget">
+                                <h5 class="widget-title">Producción</h5>
+                                <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                    <li>CI/CD para mobile</li>
+                                    <li>Code signing y certificados</li>
+                                    <li>Crash reporting y analytics</li>
+                                    <li>A/B testing</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span>APSAN</span><span class="logo-highlight">.dev</span>
+                    </div>
+                    <p class="footer-description">Ingeniero Informático especializado en desarrollo web y ciberseguridad. Compartiendo conocimiento técnico y experiencias.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 APSAN.dev. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="../main.js"></script>
 </body>

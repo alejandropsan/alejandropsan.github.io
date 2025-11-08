@@ -141,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typingElement) {
         const texts = [
             'Full Stack Developer',
-            'DevOps Engineer',
             'Cybersecurity Enthusiast',
             'OSCP Candidate'
         ];

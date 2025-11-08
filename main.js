@@ -405,5 +405,5 @@ function throttle(func, limit) {
 
 // Console log artístico (opcional)
 console.log('%c alejandro.ps ', 'background: linear-gradient(135deg, #00d4ff, #7c3aed); color: white; font-size: 20px; padding: 10px 20px; border-radius: 8px; font-weight: bold;');
-console.log('%c Full Stack Developer | DevOps | Cybersecurity ', 'color: #00d4ff; font-size: 14px; padding: 5px;');
+console.log('%c Full Stack Developer | Cybersecurity ', 'color: #00d4ff; font-size: 14px; padding: 5px;');
 console.log('%c Looking for something? Check out the code! ', 'color: #a1a1aa; font-size: 12px; font-style: italic;');

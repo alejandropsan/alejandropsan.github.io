@@ -1203,3 +1203,198 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
 }
+
+/* ========================================
+   ESTILOS PARA POST/ARTÍCULO
+   ======================================== */
+
+/* Metadata del artículo */
+.article-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Introducción del artículo */
+.article-intro {
+    margin-bottom: 2rem;
+}
+
+/* Sección del artículo */
+.article-section {
+    margin-bottom: 3rem;
+}
+
+.article-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.article-section-subtitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Grid de características */
+.features-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Caja de característica */
+.feature-box {
+    padding: 1.5rem;
+    background: var(--bg-tertiary);
+    border-left: 3px solid var(--primary);
+    border-radius: var(--radius-md);
+}
+
+.feature-box.secondary {
+    border-left-color: var(--secondary);
+}
+
+.feature-box-title {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.feature-box.secondary .feature-box-title {
+    color: var(--secondary);
+}
+
+.feature-box-text {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Grid de referencias */
+.reference-grid {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Footer del artículo */
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Bloques de código */
+.code-block {
+    background: var(--bg-primary);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.code-block-compact {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.code-comment {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.code-line {
+    margin-bottom: 1rem;
+}
+
+.code-line-compact {
+    margin-bottom: 0.5rem;
+}
+
+.code-subline {
+    margin-top: 1rem;
+}
+
+.code-primary {
+    color: var(--primary);
+}
+
+.code-secondary {
+    color: var(--secondary);
+}
+
+.code-output {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.code-output-small {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    overflow-x: auto;
+}
+
+.code-inline {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1rem;
+    font-family: var(--font-mono);
+    color: var(--primary);
+}
+
+.list-styled {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.list-styled-top {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+    color: var(--text-secondary);
+}
+
+.text-margin-top {
+    margin-top: 1rem;
+}
+
+.text-margin-bottom {
+    margin-bottom: 1rem;
+}
+
+.text-margin-half {
+    margin-bottom: 0.5rem;
+}
+
+.troubleshoot-content {
+    padding: 1rem;
+    color: var(--text-secondary);
+}
+
+.code-block-nested {
+    background: var(--bg-primary);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}

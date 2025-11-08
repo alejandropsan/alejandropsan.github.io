@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipper Zero - Guía Completa - apsan.dev</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navegación -->
+    <nav id="navbar" class="navbar" aria-label="Navegación principal">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-logo">
+                <span>APSAN</span><span class="logo-highlight">.dev</span>
+            </a>
+            <ul id="navMenu" class="nav-menu">
+                <li class="nav-item"><a href="../../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="../../home.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../../web/web.html" class="nav-link">Desarrollo Web</a></li>
+                <li class="nav-item"><a href="../../mobile/mobile.html" class="nav-link">Desarrollo Móvil</a></li>
+                <li class="nav-item"><a href="../../adminsystems/adminsystems.html" class="nav-link">Admin Sistemas</a></li>
+                <li class="nav-item"><a href="../../oscp/oscp.html" class="nav-link">OSCP</a></li>
+                <li class="nav-item"><a href="../../sobremi.html" class="nav-link">Sobre Mí</a></li>
+                <li class="nav-item"><a href="../../contacto.html" class="nav-link nav-link-cta">Contacto</a></li>
+            </ul>
+            <button id="hamburger" type="button" class="hamburger" aria-label="Menú de navegación">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="../../index.html">Inicio</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../../home.html">Home</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="../oscp.html">OSCP</a>
+            <span class="breadcrumb-separator">/</span>
+            <span class="breadcrumb-current">Flipper Zero</span>
+        </nav>
+        <h1 class="page-title">
+            <span class="page-title-main">Flipper Zero</span>
+        </h1>
+        <p class="page-subtitle">Herramienta portátil multifunción para hacking de hardware y análisis de radiofrecuencia</p>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <div class="container">
+            <article class="feature-card">
+                <!-- Header del artículo -->
+                <div class="card-content">
+                    <span class="card-badge">HARDWARE HACKING</span>
+                    <h2 class="card-title">Guía Completa de Flipper Zero</h2>
+                    <div class="article-meta">
+                        <span>8 de Noviembre 2025</span>
+                        <span>•</span>
+                        <span>@alejandropsan</span>
+                        <span>•</span>
+                        <span>Lectura: 20 min</span>
+                    </div>
+                </div>
+
+                <!-- Introducción -->
+                <div class="card-description article-intro">
+                    <p>El Flipper Zero es una herramienta portátil versátil diseñada para hackers, makers y entusiastas de la seguridad. Este dispositivo del tamaño de la palma de tu mano combina múltiples capacidades de análisis y manipulación de protocolos digitales y de radiofrecuencia, convirtiéndose en una navaja suiza del hacking de hardware.</p>
+                </div>
+
+                <!-- Qué es Flipper Zero -->
+                <div class="article-section">
+                    <h3 class="article-section-title">¿Qué es Flipper Zero?</h3>
+                    <p class="card-description">Flipper Zero es un dispositivo multifunción que te permite interactuar con diversos protocolos de comunicación y sistemas digitales. Está diseñado tanto para aprendizaje como para pentesting de sistemas IoT y dispositivos de control de acceso.</p>
+
+                    <div class="features-grid">
+                        <div class="feature-box">
+                            <h4 class="feature-box-title">Capacidades Principales</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li><strong>RFID/NFC</strong> - Lectura y emulación de tarjetas de 125kHz y 13.56MHz</li>
+                                <li><strong>Radiofrecuencia Sub-GHz</strong> - Análisis y replay de señales RF</li>
+                                <li><strong>Infrarrojos</strong> - Control remoto universal y análisis IR</li>
+                                <li><strong>GPIO</strong> - Interfaz programable para hardware externo</li>
+                                <li><strong>iButton</strong> - Lectura y emulación de llaves electrónicas</li>
+                                <li><strong>Bad USB</strong> - Emulación de teclado para ataques HID</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-box secondary">
+                            <h4 class="feature-box-title">Especificaciones Técnicas</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li><strong>MCU:</strong> STM32WB55 (ARM Cortex-M4)</li>
+                                <li><strong>Pantalla:</strong> 1.4" LCD monocromática 128x64</li>
+                                <li><strong>Batería:</strong> 2000 mAh Li-Po recargable</li>
+                                <li><strong>Conectividad:</strong> Bluetooth LE, USB-C</li>
+                                <li><strong>Almacenamiento:</strong> microSD hasta 64GB</li>
+                                <li><strong>Frecuencias Sub-GHz:</strong> 300-348 MHz, 387-464 MHz, 779-928 MHz</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertencia Legal -->
+                <div class="feature-box secondary">
+                    <h4 class="feature-box-title">⚠️ Consideraciones Legales y Éticas</h4>
+                    <p class="feature-box-text">El Flipper Zero es una herramienta educativa y de investigación en seguridad. Su uso está regulado por las leyes de tu jurisdicción. NUNCA uses el Flipper Zero para:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem; color: var(--text-secondary);">
+                        <li>Acceder a sistemas sin autorización explícita</li>
+                        <li>Clonar tarjetas de acceso de terceros sin permiso</li>
+                        <li>Interferir con señales de comunicaciones críticas</li>
+                        <li>Violar la privacidad de otras personas</li>
+                        <li>Realizar actividades ilegales de cualquier tipo</li>
+                    </ul>
+                    <p class="feature-box-text" style="margin-top: 1rem;">Usa esta herramienta únicamente en tus propios dispositivos o con permiso explícito por escrito del propietario.</p>
+                </div>
+
+                <!-- Primeros Pasos -->
+                <div class="article-section">
+                    <h3 class="article-section-title">Primeros Pasos con Flipper Zero</h3>
+                    <p class="card-description">Para empezar a usar tu Flipper Zero, sigue estos pasos iniciales:</p>
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">Configuración Inicial</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <ol style="margin-left: 1.5rem;">
+                                <li style="margin-bottom: 1rem;"><strong>Cargar la batería:</strong> Conecta el Flipper Zero mediante USB-C y déjalo cargar completamente antes del primer uso.</li>
+                                <li style="margin-bottom: 1rem;"><strong>Actualizar firmware:</strong> Visita <code style="background: var(--bg-primary); padding: 0.25rem 0.5rem; border-radius: 4px;">flipperzero.one/update</code> para descargar la última versión del firmware.</li>
+                                <li style="margin-bottom: 1rem;"><strong>Instalar qFlipper:</strong> Descarga la aplicación de escritorio qFlipper para gestionar archivos y actualizar el dispositivo.</li>
+                                <li style="margin-bottom: 1rem;"><strong>Insertar microSD:</strong> Formatea una tarjeta microSD en FAT32 e insértala para expandir el almacenamiento.</li>
+                                <li><strong>Explorar la interfaz:</strong> Familiarízate con los botones de navegación y el menú principal.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Funcionalidades Principales -->
+                <div class="article-section">
+                    <h3 class="article-section-title">Funcionalidades y Casos de Uso</h3>
+
+                    <!-- RFID/NFC -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">1. RFID y NFC</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <p style="margin-bottom: 1rem;">El Flipper Zero puede leer, guardar y emular tarjetas RFID de baja frecuencia (125kHz) y tarjetas NFC de alta frecuencia (13.56MHz).</p>
+
+                            <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1rem;">
+                                <div style="color: var(--text-tertiary); margin-bottom: 0.5rem;">Casos de uso legítimos:</div>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li>Copiar tus propias tarjetas de acceso como backup</li>
+                                    <li>Auditar la seguridad de tus sistemas de control de acceso</li>
+                                    <li>Analizar protocolos NFC en tus dispositivos</li>
+                                    <li>Desarrollar proyectos IoT con comunicación NFC</li>
+                                </ul>
+                            </div>
+
+                            <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="color: var(--text-tertiary); margin-bottom: 0.5rem;">Protocolo compatible:</div>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li><strong>125kHz:</strong> EM4100, HID Prox, Indala, etc.</li>
+                                    <li><strong>13.56MHz:</strong> MIFARE Classic, MIFARE Ultralight, NTAG, etc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sub-GHz -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">2. Radiofrecuencia Sub-GHz</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <p style="margin-bottom: 1rem;">Captura, analiza y reproduce señales de radiofrecuencia en rangos Sub-GHz. Útil para sistemas de garaje, sensores, alarmas y más.</p>
+
+                            <div class="feature-box">
+                                <h4 class="feature-box-title">Funcionalidades RF</h4>
+                                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                    <li><strong>Read RAW:</strong> Captura señales desconocidas para análisis</li>
+                                    <li><strong>Frequency Analyzer:</strong> Detecta frecuencias activas en el espectro</li>
+                                    <li><strong>Replay:</strong> Reproduce señales capturadas</li>
+                                    <li><strong>Signal Generator:</strong> Genera señales personalizadas</li>
+                                </ul>
+                            </div>
+
+                            <div class="feature-box secondary" style="margin-top: 1rem;">
+                                <h4 class="feature-box-title">⚠️ Advertencia Importante</h4>
+                                <p class="feature-box-text">Transmitir en ciertas frecuencias puede ser ilegal sin licencia adecuada. Conoce las regulaciones de tu país antes de transmitir señales RF.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Infrarrojos -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">3. Control Infrarrojo</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <p style="margin-bottom: 1rem;">El Flipper Zero incluye emisor y receptor IR, permitiéndote controlar prácticamente cualquier dispositivo que use control remoto infrarrojo.</p>
+
+                            <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="color: var(--text-tertiary); margin-bottom: 0.5rem;">Aplicaciones IR:</div>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li>Control universal de TV, aire acondicionado, proyectores</li>
+                                    <li>Captura de señales de mandos a distancia</li>
+                                    <li>Biblioteca de códigos IR preinstalados</li>
+                                    <li>Creación de macros IR personalizadas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bad USB -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">4. Bad USB (HID Attack)</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <p style="margin-bottom: 1rem;">El modo Bad USB permite al Flipper Zero emular un teclado USB, ejecutando secuencias de teclas preprogramadas automáticamente cuando se conecta a una computadora.</p>
+
+                            <div class="feature-box">
+                                <h4 class="feature-box-title">Usos Legítimos de Bad USB</h4>
+                                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                                    <li>Automatización de tareas repetitivas</li>
+                                    <li>Testing de políticas de seguridad USB en tu empresa</li>
+                                    <li>Demostraciones educativas sobre riesgos USB</li>
+                                    <li>Configuración rápida de sistemas</li>
+                                </ul>
+                            </div>
+
+                            <div style="background: var(--bg-primary); padding: 1.5rem; border-radius: var(--radius-md); margin-top: 1rem;">
+                                <div style="color: var(--text-tertiary); margin-bottom: 0.5rem;">Ejemplo de script Bad USB:</div>
+                                <pre style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--primary); overflow-x: auto;">REM Abrir notepad y escribir mensaje
+DELAY 1000
+GUI r
+DELAY 500
+STRING notepad
+ENTER
+DELAY 1000
+STRING Hola desde Flipper Zero!
+ENTER</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GPIO -->
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">5. GPIO y Hardware Externo</h4>
+                        <div style="padding: 1rem; color: var(--text-secondary);">
+                            <p style="margin-bottom: 1rem;">Los pines GPIO del Flipper Zero permiten conectar hardware externo y crear proyectos personalizados.</p>
+
+                            <div style="background: var(--bg-primary); padding: 1rem; border-radius: var(--radius-md);">
+                                <div style="color: var(--text-tertiary); margin-bottom: 0.5rem;">Protocolos soportados:</div>
+                                <ul style="margin-left: 1.5rem;">
+                                    <li><strong>UART:</strong> Comunicación serial</li>
+                                    <li><strong>SPI:</strong> Interfaz serie síncrona</li>
+                                    <li><strong>I2C:</strong> Bus de comunicación</li>
+                                    <li><strong>1-Wire:</strong> Protocolo de un solo cable (iButton)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Firmware Personalizado -->
+                <div class="article-section">
+                    <h3 class="article-section-title">Firmware Personalizado</h3>
+                    <p class="card-description">Además del firmware oficial, existen varias versiones personalizadas que añaden funcionalidades extra:</p>
+
+                    <div class="reference-grid">
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">Unleashed Firmware</h4>
+                            <div style="padding: 1rem; color: var(--text-secondary);">
+                                <p>Versión modificada que elimina algunas restricciones del firmware oficial y añade funcionalidades adicionales de pentesting.</p>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">Xtreme Firmware</h4>
+                            <div style="padding: 1rem; color: var(--text-secondary);">
+                                <p>Basado en Unleashed, incluye más animaciones, temas personalizables y herramientas adicionales.</p>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">RogueMaster</h4>
+                            <div style="padding: 1rem; color: var(--text-secondary);">
+                                <p>Compilación comunitaria que integra múltiples plugins y aplicaciones de terceros.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recursos y Comunidad -->
+                <div class="article-section">
+                    <h3 class="article-section-title">Recursos y Comunidad</h3>
+
+                    <div class="features-grid">
+                        <div class="feature-box">
+                            <h4 class="feature-box-title">Recursos Oficiales</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li><strong>docs.flipperzero.one</strong> - Documentación oficial</li>
+                                <li><strong>github.com/flipperdevices</strong> - Código fuente y firmware</li>
+                                <li><strong>forum.flipperzero.one</strong> - Foro oficial</li>
+                                <li><strong>lab.flipper.net</strong> - Aplicación móvil compañera</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-box secondary">
+                            <h4 class="feature-box-title">Comunidad</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li><strong>r/flipperzero</strong> - Subreddit activo</li>
+                                <li><strong>Discord de Flipper Zero</strong> - Chat en tiempo real</li>
+                                <li><strong>Awesome Flipper</strong> - Repositorio de recursos</li>
+                                <li><strong>YouTube</strong> - Tutoriales y reviews</li>
+                            </ul>
+                        </div>
+
+                        <div class="feature-box">
+                            <h4 class="feature-box-title">Proyectos Interesantes</h4>
+                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                                <li>WiFi Developer Board - Módulo ESP32 para WiFi</li>
+                                <li>Video Game Module - Juega retro games en tu Flipper</li>
+                                <li>GPS Module - Añade capacidades de geolocalización</li>
+                                <li>Custom Cases - Carcasas y accesorios personalizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusión -->
+                <div class="article-section">
+                    <h3 class="article-section-title">Conclusión</h3>
+                    <div class="feature-box">
+                        <p class="feature-box-text">El Flipper Zero es una herramienta educativa excepcional para aprender sobre seguridad de hardware, protocolos de comunicación y hacking ético. Su comunidad activa y naturaleza open-source lo convierten en una plataforma ideal tanto para principiantes como para profesionales de seguridad.</p>
+                        <p class="feature-box-text" style="margin-top: 1rem;">Recuerda siempre usar esta herramienta de manera responsable, ética y legal. El conocimiento es poder, pero con él viene la responsabilidad de usarlo para el bien.</p>
+                    </div>
+                </div>
+
+                <!-- Footer del artículo -->
+                <div class="article-footer">
+                    <span class="tag">Flipper Zero</span>
+                    <span class="tag">Hardware Hacking</span>
+                    <span class="tag">RFID</span>
+                    <span class="tag">NFC</span>
+                    <span class="tag">RF</span>
+                    <span class="tag">Pentesting</span>
+                    <span class="tag">IoT Security</span>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span>APSAN</span><span class="logo-highlight">.dev</span>
+                    </div>
+                    <p class="footer-description">Ingeniero Informático especializado en desarrollo web y ciberseguridad. Compartiendo conocimiento técnico y experiencias.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 APSAN.dev. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../main.js"></script>
+</body>
+</html>
