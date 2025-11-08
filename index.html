@@ -2,26 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- BOOTSTRAP 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- ESTILOS CSS -->
-    <link rel="stylesheet" href="style.css">
-    <title>Alejandropsan | Blog</title>
-</head>
-<body>
-    <header>
-            <video class="video" autoplay muted loop>
-                <source src="./assets/apsan.devweb2.mp4" type="video/mp4" />
-            </video>
-            <div class="header-text">
-                <h1 id="texto-entrada"><a href="home.html">aL€J@nDr0PS@n</a></h1>
-                <button class="btn btn-info btn-lg" id="btn-apsan"><a href="home.html">Connect</a></button>
-            </div>
-    </header>
+    <meta name="description" content="Alejandro PS - Ingeniero Informático especializado en Desarrollo Web, DevOps y Ciberseguridad">
+    <title>Alejandro PS | Tech Blog & Portfolio</title>
     
-    <script src="main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="landing-page">
+    <!-- Partículas de fondo animadas -->
+    <div class="particles-container">
+        <canvas id="particles"></canvas>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <!-- Logo/Nombre con efecto glitch -->
+            <div class="hero-title-wrapper">
+                <h1 class="hero-title" data-text="ALEJANDRO PS">
+                    <span class="glitch-text">ALEJANDRO PS</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text"></span>
+                    <span class="cursor">|</span>
+                </div>
+            </div>
+            
+            <!-- Tags profesionales -->
+            <div class="hero-tags">
+                <span class="tag">#FullStackDev</span>
+                <span class="tag">#DevOps</span>
+                <span class="tag">#Cybersecurity</span>
+                <span class="tag">#OSCP</span>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="home.html" class="cta-button">
+                <span class="button-text">Explorar</span>
+                <span class="button-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </span>
+            </a>
+            
+            <!-- Scroll indicator -->
+            <div class="scroll-indicator">
+                <span class="scroll-text">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+        
+        <!-- Video de fondo con overlay -->
+        <div class="hero-background">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="./assets/apsan.devweb2.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+    </section>
+    
+    <script src="landing.js"></script>
 </body>
 </html>

@@ -2,256 +2,422 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- BOOTSTRAP 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <!-- ESTILOS CSS -->
+    <meta name="description" content="Blog técnico sobre desarrollo web, DevOps, ciberseguridad y más">
+    <title>Home | Alejandro PS</title>
+    
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
-    <title>Alejandropsan | Blog</title>
 </head>
 <body>
-    <header>
-      <div class="logotipo">
-        <img class="logo" src="assets/3.png" alt="logo apsan.dev" width="400" height="400">
-      </div>
-    </header>
-    <main>
-      <div class="navegacion">
-        <nav class="navegacion navegacion-nav">
-            <ul>
-                <li>
-                  <a href="index.html">Inicio</a>
+    <!-- Navbar moderna con glassmorphism -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-logo">
+                <img src="assets/3.png" alt="Logo" class="logo-img">
+                <span class="logo-text">alejandro<span class="logo-highlight">.ps</span></span>
+            </a>
+            
+            <!-- Menu desktop -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
                 </li>
-                <li>
-                  <a href="home.html">Home</a>
+                <li class="nav-item dropdown">
+                    <a href="/web/web.html" class="nav-link">
+                        Desarrollo Web
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Frontend</a></li>
+                        <li><a href="web/backend/php/php.html" class="dropdown-link">PHP</a></li>
+                        <li><a href="#" class="dropdown-link">Frameworks</a></li>
+                    </ul>
                 </li>
-                <li>
-                  <a href="/web/web.html">Desarrollo web</a>
-                  <ul class="web">
-                    <li>
-                      <a href="">Frontend</a> 
-                      <ul>
-                        <li>
-                          <a href="">HTML, CSS y JavaScript</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="">Backend</a>
-                      <ul>
-                        <li>
-                          <a href="web/backend/php/php.html">PHP</a>
-                        </li>
-                        <li>
-                          <a href="">JAVA</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="">Frameworks</a>
-                    </li>
-                    
-                  </ul>
+                <li class="nav-item dropdown">
+                    <a href="/mobile/mobile.html" class="nav-link">
+                        Desarrollo Móvil
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Nativo</a></li>
+                        <li><a href="#" class="dropdown-link">Multiplataforma</a></li>
+                    </ul>
                 </li>
-                <li>
-                  <a href="/mobile/mobile.html">Desarrollo Móvil</a>
-                  <ul class="mobile">
-                    <li>
-                      <a href="">Nátivo</a>
-                    </li>
-                    <li>
-                      <a href="">Multiplataforma</a>
-                    </li>
-                  </ul>
+                <li class="nav-item dropdown">
+                    <a href="/devops/devops.html" class="nav-link">
+                        DevOps
+                        <svg class="dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" class="dropdown-link">Docker</a></li>
+                        <li><a href="#" class="dropdown-link">Kubernetes</a></li>
+                        <li><a href="#" class="dropdown-link">CI/CD</a></li>
+                    </ul>
                 </li>
-                <li>
-                  <a href="/devops/devops.html">DevOps</a>
-                  <ul class="devops">
-                    <li>
-                      <a href="">Vme's</a>
-                    </li>
-                    <li>
-                      <a href="">Docker</a>
-                    </li>
-                    <li>
-                      <a href="">Hosting</a>
-                    </li>
-                    <li>
-                      <a href="">Deploys</a>
-                    </li>
-                  </ul>
+                <li class="nav-item">
+                    <a href="/adminsystems/adminsystems.html" class="nav-link">Sysadmin</a>
                 </li>
-                <li>
-                  <a href="/adminsystems/adminsystems.html">Administración de sistemas</a>
-                  <ul>
-                    <li>
-                      <a href="">Windows</a>
-                    </li>
-                    <li>
-                      <a href="">Linux</a>
-                    </li>
-                  </ul>
+                <li class="nav-item">
+                    <a href="sobremi.html" class="nav-link">Sobre Mí</a>
                 </li>
-                <li>
-                  <a href="sobremi.html">Sobre Mí</a>
-                </li>
-                <li>
-                  <a href="contacto.html">Contacto</a>
+                <li class="nav-item">
+                    <a href="contacto.html" class="nav-link nav-link-cta">Contacto</a>
                 </li>
             </ul>
-        </nav>
-    </div>
-
-    <div class="clearfix"></div>
-    <div class="separador"></div>
-
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Home</li>
-      </ol>
+            
+            <!-- Hamburger menu -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
     </nav>
-
-      <div class="container-principal">
-
-        <div class="container conocenos col-md-12">
-          <div class="informacion">
-              <div class="titulo">
-                  <h1 class="home">Home</h1>
-              </div>
-              <div class="subtitulo">
-                  <p>Destacados</p>
-              </div>
-          </div>
-          <div class="cards">
-              <div class="card my-5">
-                  <div class="card-header">
-                    Desarrollo Web
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Artículos con información relacionada al mundo del desarrollo web</h5>
-                    <p class="card-text">Manuales, Tips y consejos sobre todo lo relacionado con el desarrollo web</p>
-                    <a href="/web/web.html" class="btn btn-gris">Entra</a>
-                  </div>
-                </div>
-
-                <div class="card my-5">
-                  <div class="card-header">
-                    Desarrollo Móvil
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Información sobre programación móvil nativa y multiplataforma</h5>
-                    <p class="card-text">Descubre todas las plataformas y diferentes alternativas de desarrollo de aplicaciones móviles</p>
-                    <a href="/mobile/mobile.html" class="btn btn-gris">Entra</a>
-                  </div>
-                </div>
-
-                <div class="card my-5">
-                  <div class="card-header">
-                    Administración de sistemas
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Windows y Linux</h5>
-                    <p class="card-text">Manuales, Tips y consejos sobre administración de sistemas Windows y Linux</p>
-                    <a href="/adminsystems/adminsystems.html" class="btn btn-gris">Entra</a>
-                  </div>
-                </div>
-
-                <div class="card my-5">
-                  <div class="card-header">
-                    DevOps
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">Vme's, Kubernetes, Docker, VPS's, Hosting, Deploys...</h5>
-                    <p class="card-text">Manuales, Tips y consejos sobre todo lo relacionado con DevOps</p>
-                    <a href="/devops/devops.html" class="btn btn-gris">Entra</a>
-                  </div>
-                </div>
-          </div>
-      </div>
-      </div>
-      
-      <aside class="lateral">
-        <div class="container container-lateral">
-          <div class="container-categorias">
-            <div class="categorias-title">
-              <h2 class="title">Categorías</h2>
-            </div>
-            <div class="categorias-content">
-              <p class="content">Desarrollo web</p>
-              <p class="content">Desarrollo móvil</p>
-              <p class="content">Desarrollo videojuegos</p>
-              <p class="content">Administración de sistemas</p>
-              <p class="content">DevOps</p>
-            </div>
-          </div>
+    
+    <!-- Hero Section con breadcrumb integrado -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="breadcrumb-current">Home</span>
+            </nav>
+            <h1 class="page-title">
+                <span class="page-title-line">Explora el</span>
+                <span class="page-title-main">Conocimiento Tech</span>
+            </h1>
+            <p class="page-subtitle">Artículos, tutoriales y recursos sobre desarrollo, DevOps y ciberseguridad</p>
         </div>
-      </aside>
-        
+    </section>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Contenido principal -->
+                <div class="content-main">
+                    <!-- Sección destacados -->
+                    <section class="featured-section">
+                        <div class="section-header">
+                            <h2 class="section-title">Categorías Destacadas</h2>
+                            <div class="section-line"></div>
+                        </div>
+                        
+                        <div class="cards-grid">
+                            <!-- Card 1: Desarrollo Web -->
+                            <article class="feature-card" data-animate>
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M16 18L22 12L16 6M8 6L2 12L8 18"/>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-badge">Popular</span>
+                                    <h3 class="card-title">Desarrollo Web</h3>
+                                    <p class="card-description">
+                                        Explora artículos sobre desarrollo frontend y backend, frameworks modernos, 
+                                        y las mejores prácticas de la industria.
+                                    </p>
+                                    <ul class="card-tags">
+                                        <li>Laravel</li>
+                                        <li>Angular</li>
+                                        <li>PHP</li>
+                                    </ul>
+                                </div>
+                                <a href="/web/web.html" class="card-link">
+                                    Explorar
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </article>
+                            
+                            <!-- Card 2: Desarrollo Móvil -->
+                            <article class="feature-card" data-animate>
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                                        <line x1="12" y1="18" x2="12" y2="18"/>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-badge">Nuevo</span>
+                                    <h3 class="card-title">Desarrollo Móvil</h3>
+                                    <p class="card-description">
+                                        Descubre cómo crear aplicaciones móviles nativas y multiplataforma 
+                                        con las últimas tecnologías.
+                                    </p>
+                                    <ul class="card-tags">
+                                        <li>React Native</li>
+                                        <li>Flutter</li>
+                                        <li>iOS/Android</li>
+                                    </ul>
+                                </div>
+                                <a href="/mobile/mobile.html" class="card-link">
+                                    Explorar
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </article>
+                            
+                            <!-- Card 3: DevOps -->
+                            <article class="feature-card" data-animate>
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M8 12h8M12 8v8"/>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-badge">Trending</span>
+                                    <h3 class="card-title">DevOps</h3>
+                                    <p class="card-description">
+                                        Aprende sobre contenedores, orquestación, CI/CD y las herramientas 
+                                        esenciales para la automatización.
+                                    </p>
+                                    <ul class="card-tags">
+                                        <li>Docker</li>
+                                        <li>Kubernetes</li>
+                                        <li>CI/CD</li>
+                                    </ul>
+                                </div>
+                                <a href="/devops/devops.html" class="card-link">
+                                    Explorar
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </article>
+                            
+                            <!-- Card 4: Administración de Sistemas -->
+                            <article class="feature-card" data-animate>
+                                <div class="card-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-badge">Esencial</span>
+                                    <h3 class="card-title">SysAdmin</h3>
+                                    <p class="card-description">
+                                        Administración de sistemas Windows y Linux, scripting, seguridad 
+                                        y optimización de infraestructura.
+                                    </p>
+                                    <ul class="card-tags">
+                                        <li>Linux</li>
+                                        <li>Windows Server</li>
+                                        <li>Bash</li>
+                                    </ul>
+                                </div>
+                                <a href="/adminsystems/adminsystems.html" class="card-link">
+                                    Explorar
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </article>
+                        </div>
+                    </section>
+                    
+                    <!-- Stats Section -->
+                    <section class="stats-section" data-animate>
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="50">0</div>
+                                <div class="stat-label">Artículos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="15">0</div>
+                                <div class="stat-label">Tutoriales</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="8">0</div>
+                                <div class="stat-label">Proyectos</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" data-count="100">0</div>
+                                <div class="stat-label">Recursos</div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <!-- Categorías -->
+                    <div class="sidebar-widget" data-animate>
+                        <h3 class="widget-title">Categorías</h3>
+                        <ul class="category-list">
+                            <li class="category-item">
+                                <a href="/web/web.html">
+                                    <span class="category-name">Desarrollo Web</span>
+                                    <span class="category-count">24</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="/mobile/mobile.html">
+                                    <span class="category-name">Desarrollo Móvil</span>
+                                    <span class="category-count">12</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="/devops/devops.html">
+                                    <span class="category-name">DevOps</span>
+                                    <span class="category-count">18</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="/adminsystems/adminsystems.html">
+                                    <span class="category-name">SysAdmin</span>
+                                    <span class="category-count">15</span>
+                                </a>
+                            </li>
+                            <li class="category-item">
+                                <a href="#">
+                                    <span class="category-name">Ciberseguridad</span>
+                                    <span class="category-count">8</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Tags populares -->
+                    <div class="sidebar-widget" data-animate>
+                        <h3 class="widget-title">Tags Populares</h3>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag-item">Laravel</a>
+                            <a href="#" class="tag-item">PHP</a>
+                            <a href="#" class="tag-item">Angular</a>
+                            <a href="#" class="tag-item">Python</a>
+                            <a href="#" class="tag-item">Docker</a>
+                            <a href="#" class="tag-item">Linux</a>
+                            <a href="#" class="tag-item">JavaScript</a>
+                            <a href="#" class="tag-item">MySQL</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Newsletter/CTA -->
+                    <div class="sidebar-widget cta-widget" data-animate>
+                        <div class="cta-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 17H2a3 3 0 003 3h14a3 3 0 003-3zM22 7v10M2 7v10M6 12h.01M18 12h.01M6 9h.01M18 9h.01M6 15h.01M18 15h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="cta-title">¿Tienes un proyecto?</h3>
+                        <p class="cta-text">Hablemos sobre cómo puedo ayudarte</p>
+                        <a href="contacto.html" class="cta-button-small">Contactar</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
     </main>
-
-    <div class="clearfix"></div>
-    <div class="separador"></div>
-    <footer>
-      <div class="container-footer">
-        <div class="row">
-          <div class="col-4">
-            <ul>
-              <h1>REDES SOCIALES</h1>
-              <li>
-                <a href="">Linkedin</a>
-              </li>
-              <li>
-                <a href="">Github</a>
-              </li>
-              <li>
-                <a href="">Facebook</a>
-              </li>
-              <li>
-                <a href="">Instagram</a>
-              </li>
-              <li>
-                <h1>CONTACTO</h1>
-                <a href="">Email: alejandropsan1@gmail.com</a>
-              </li>
-              <li>
-                <a href="">Telf: 635317939</a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-4">
-            <h1>MENÚ</h1>
-            <li>
-              <a href="">Desarrollo web</a>
-            </li>
-            <li>
-              <a href="">Desarrollo móvil</a>
-            </li>
-            <li>
-              <a href="">Desarrollo desktop</a>
-            </li>
-            <li>
-              <a href="">Desarrollo videojuegos</a>
-            </li>
-            <li>
-              <a href="">Administración de sistemas</a>
-            </li>
-            <li>
-              <a href="">DevOps</a>
-            </li>
-            <li>
-              <a href="">Flipper</a>
-            </li>
-            <li>
-              <a href="">Sobre Mí</a>
-            </li>
-          </div>
-          <div class="col-4">
-            <h1>Soluciones informáticas</h1>
-          </div>
+    
+    <!-- Footer moderno -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Columna 1: Info -->
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <span class="logo-text">alejandro<span class="logo-highlight">.ps</span></span>
+                    </div>
+                    <p class="footer-description">
+                        Ingeniero Informático especializado en desarrollo web, DevOps y ciberseguridad. 
+                        Compartiendo conocimiento técnico y experiencias.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Email">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Columna 2: Enlaces rápidos -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Navegación</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="/web/web.html">Desarrollo Web</a></li>
+                        <li><a href="/mobile/mobile.html">Desarrollo Móvil</a></li>
+                        <li><a href="/devops/devops.html">DevOps</a></li>
+                        <li><a href="/adminsystems/adminsystems.html">SysAdmin</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 3: Recursos -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="sobremi.html">Sobre Mí</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Proyectos</a></li>
+                        <li><a href="#">Tutoriales</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Columna 4: Contacto -->
+                <div class="footer-col">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <a href="mailto:alejandropsan1@gmail.com">alejandropsan1@gmail.com</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span>635 317 939</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Alejandro PS. Todos los derechos reservados.</p>
+                <div class="footer-meta">
+                    <a href="#">Política de Privacidad</a>
+                    <span>•</span>
+                    <a href="#">Términos de Uso</a>
+                </div>
+            </div>
         </div>
-      </div>
     </footer>
+    
+    <script src="main.js"></script>
 </body>
 </html>
