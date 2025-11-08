@@ -70,24 +70,28 @@
 </head>
 
 <body>
-    <header class="navbar">
+    <nav id="navbar" class="navbar" aria-label="Navegación principal">
         <div class="nav-container">
             <a href="../index.html" class="nav-logo">
-                <img src="../images/logo.png" alt="Logo" class="logo-img">
-                <span class="logo-highlight">apsan</span>.dev
+                <span>APSAN</span><span class="logo-highlight">.dev</span>
             </a>
-            <nav class="nav-menu">
-                <a href="../index.html" class="nav-link">Inicio</a>
-                <a href="../home.html" class="nav-link">Home</a>
-                <a href="../web/web.html" class="nav-link">Desarrollo web</a>
-                <a href="../mobile/mobile.html" class="nav-link">Desarrollo Móvil</a>
-                <a href="../adminsystems/adminsystems.html" class="nav-link">Administración de sistemas</a>
-                <a href="../oscp/oscp.html" class="nav-link">OSCP</a>
-                <a href="../sobremi.html" class="nav-link">Sobre Mí</a>
-                <a href="../contacto.html" class="nav-link">Contacto</a>
-            </nav>
+            <ul id="navMenu" class="nav-menu">
+                <li class="nav-item"><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="../home.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="../web/web.html" class="nav-link">Desarrollo Web</a></li>
+                <li class="nav-item"><a href="../mobile/mobile.html" class="nav-link">Desarrollo Móvil</a></li>
+                <li class="nav-item"><a href="../adminsystems/adminsystems.html" class="nav-link">SysAdmin</a></li>
+                <li class="nav-item"><a href="../oscp/oscp.html" class="nav-link">OSCP</a></li>
+                <li class="nav-item"><a href="../sobremi.html" class="nav-link">Sobre Mí</a></li>
+                <li class="nav-item"><a href="../contacto.html" class="nav-link nav-link-cta">Contacto</a></li>
+            </ul>
+            <button id="hamburger" type="button" class="hamburger" aria-label="Menú de navegación">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
-    </header>
+    </nav>
 
     <section class="page-hero">
         <nav aria-label="breadcrumb">
