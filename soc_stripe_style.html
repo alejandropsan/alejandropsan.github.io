@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Stripe Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #FFFFFF;
+            --bg-gray: #F6F9FC;
+            --bg-dark: #0A2540;
+            --text-main: #0A2540;
+            --text-muted: #425466;
+            --text-light: #ADBDCC;
+
+            /* Stripe Colors */
+            --stripe-blurple: #635BFF;
+            --stripe-blurple-hover: #5851D8;
+            --stripe-teal: #00D4FF;
+            --stripe-cyan: #00D4FF;
+
+            --shadow-card: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3);
+            --shadow-card-hover: 0 30px 60px -12px rgba(50, 50, 93, 0.25), 0 18px 36px -18px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 42px);
+            margin-bottom: 24px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            max-width: 600px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--stripe-blurple);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--stripe-blurple-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn-dark {
+            background: var(--bg-dark);
+            color: #fff;
+        }
+
+        .btn-dark:hover {
+            background: #1a3b5c;
+        }
+
+        .btn-text {
+            color: var(--stripe-blurple);
+            font-weight: 600;
+            padding: 0;
+        }
+
+        .btn-text:hover {
+            color: var(--bg-dark);
+        }
+
+        .btn-text::after {
+            content: '→';
+            margin-left: 6px;
+            transition: margin 0.2s;
+        }
+
+        .btn-text:hover::after {
+            margin-left: 10px;
+        }
+
+        /* Navbar */
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 24px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero with Gradient Mesh */
+        .hero {
+            position: relative;
+            padding-top: 160px;
+            padding-bottom: 180px;
+            overflow: hidden;
+            /* Gradient approximation */
+            background-color: #0a2540;
+            background-image:
+                radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+                radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+                radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
+        }
+
+        /* Angled Bottom */
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: var(--bg-body);
+            transform: skewY(-6deg);
+            z-index: 1;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-visual {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform: rotateY(-10deg) rotateX(5deg);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            color: #fff;
+        }
+
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .hero-text p {
+                margin: 0 auto 32px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-gray {
+            background: var(--bg-gray);
+        }
+
+        /* Angled Divider Top */
+        .angle-top {
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: inherit;
+            transform: skewY(-6deg);
+            z-index: 0;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 900px) {
+
+            .grid-4,
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Feature Cards */
+        .feature-item {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 6px;
+            width: 16px;
+            height: 16px;
+            background: var(--stripe-blurple);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .feature-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 11px;
+            width: 6px;
+            height: 6px;
+            background: var(--stripe-blurple);
+            border-radius: 50%;
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .feature-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Code/App Visual */
+        .app-visual {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            border: 1px solid #e6ebf1;
+        }
+
+        .app-header {
+            background: #f6f9fc;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e6ebf1;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #dce3eb;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: var(--shadow-card);
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .pricing-card.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--stripe-blurple);
+        }
+
+        /* Global Scale Section */
+        .global-section {
+            background: var(--bg-dark);
+            color: #fff;
+            padding: 120px 0;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        .global-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: var(--bg-dark);
+            transform: skewY(-6deg);
+            z-index: 0;
+        }
+
+        .global-section h2 {
+            color: #fff;
+        }
+
+        .global-section p {
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #f6f9fc;
+            padding: 80px 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo">Sons of Calisthenics</div>
+            <nav class="nav-links">
+                <a href="#products">Products</a>
+                <a href="#solutions">Solutions</a>
+                <a href="#developers">Developers</a>
+                <a href="#resources">Resources</a>
+                <a href="#pricing">Pricing</a>
+            </nav>
+            <a href="#contact" class="btn" style="background: rgba(255,255,255,0.2); color: #fff; font-size: 14px;">Sign
+                in ></a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Infrastructure for<br>your body.</h1>
+                <p>Millions of reps processed. Sons of Calisthenics is the complete toolkit to build, scale, and master
+                    your physical potential.</p>
+                <div class="hero-buttons" style="display: flex; gap: 16px; margin-top: 32px;">
+                    <a href="#start" class="btn btn-dark" style="border-radius: 20px;">Start now</a>
+                    <a href="#contact" class="btn"
+                        style="background: #fff; color: var(--text-main); border-radius: 20px;">Contact sales</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div style="font-family: monospace; font-size: 14px; line-height: 1.6;">
+                        <span style="color: #ff79c6">const</span> <span style="color: #8be9fd">athlete</span> = <span
+                            style="color: #ff79c6">await</span> soc.<span style="color: #50fa7b">create</span>({<br>
+                        &nbsp;&nbsp;strength: <span style="color: #bd93f9">'elite'</span>,<br>
+                        &nbsp;&nbsp;skills: [<span style="color: #f1fa8c">'planche'</span>, <span
+                            style="color: #f1fa8c">'front_lever'</span>],<br>
+                        &nbsp;&nbsp;consistency: <span style="color: #ffb86c">true</span><br>
+                        });<br><br>
+                        <span style="color: #6272a4">// Optimization complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h3
+                        style="color: var(--stripe-blurple); text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; margin-bottom: 16px;">
+                        Unified Platform</h3>
+                    <h2>A fully integrated suite of training products.</h2>
+                    <p>We bring together everything that's required to build a high-performance physique. From
+                        programming to nutrition, fully managed.</p>
+                    <a href="#" class="btn-text">Explore the platform</a>
+                </div>
+                <div class="grid-2" style="gap: 30px;">
+                    <div class="feature-item">
+                        <div class="feature-title">Smart Progress</div>
+                        <div class="feature-desc">Adaptive algorithms that scale with you.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Video Analysis</div>
+                        <div class="feature-desc">Frame-by-frame technical breakdown.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Nutrition</div>
+                        <div class="feature-desc">Fuel your performance with precision.</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-title">Community</div>
+                        <div class="feature-desc">Join elite athletes worldwide.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gray Section (Angled) -->
+    <section class="section section-gray">
+        <div class="angle-top"></div>
+        <div class="container">
+            <div class="grid-2">
+                <div class="app-visual">
+                    <div class="app-header">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1974&auto=format&fit=crop"
+                        style="width: 100%; display: block;">
+                </div>
+                <div>
+                    <h3
+                        style="color: var(--stripe-teal); text-transform: uppercase; font-size: 14px; letter-spacing: 0.5px; margin-bottom: 16px;">
+                        Designed for Athletes</h3>
+                    <h2>The world's most powerful training app.</h2>
+                    <p>Experience the most intuitive interface in fitness. Track reps, sets, and RPE with zero friction.
+                    </p>
+                    <div style="margin-top: 24px; display: flex; gap: 16px;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px;">
+                            <span style="color: var(--stripe-blurple);">✓</span> Real-time Sync
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px;">
+                            <span style="color: var(--stripe-blurple);">✓</span> Offline Mode
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section">
+        <div class="container">
+            <h2 style="max-width: 500px; margin-bottom: 60px;">Simple, transparent pricing.</h2>
+            <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div style="font-size: 32px; font-weight: 800; margin: 16px 0;">€45</div>
+                    <p style="font-size: 15px;">One-time session to correct technique.</p>
+                    <a href="#" class="btn-text">Get started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Growth</h3>
+                    <div style="font-size: 32px; font-weight: 800; margin: 16px 0;">€140</div>
+                    <p style="font-size: 15px;">4-Session pack with nutrition plan.</p>
+                    <a href="#" class="btn-text">Get started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Scale</h3>
+                    <div style="font-size: 32px; font-weight: 800; margin: 16px 0;">€299</div>
+                    <p style="font-size: 15px;">10-Session pack for total transformation.</p>
+                    <a href="#" class="btn-text">Contact sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Scale (Dark) -->
+    <section class="global-section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2>Global scale.</h2>
+                    <p>Sons of Calisthenics operates in Barcelona but serves athletes in over 20 countries via our
+                        digital platform.</p>
+                    <div class="grid-2" style="margin-top: 40px; gap: 20px;">
+                        <div>
+                            <div style="font-size: 32px; font-weight: 800; color: var(--stripe-teal);">99.9%</div>
+                            <div style="font-size: 14px; color: var(--text-light);">Uptime</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 32px; font-weight: 800; color: var(--stripe-teal);">500+</div>
+                            <div style="font-size: 14px; color: var(--text-light);">Athletes</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <!-- Globe or Map Placeholder -->
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                        style="width: 100%; border-radius: 12px; opacity: 0.8;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo" style="color: var(--text-main); margin-bottom: 20px;">Sons of Calisthenics</div>
+                <p style="font-size: 14px;">© 2026 Sons of Calisthenics.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Products</h4>
+                <ul>
+                    <li><a href="#">Smart Progress</a></li>
+                    <li><a href="#">Coaching</a></li>
+                    <li><a href="#">Courses</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Jobs</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

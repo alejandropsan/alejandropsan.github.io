@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sons of Calisthenics - Mobile 3D Experience</title>
+    <meta name="description" content="Entrenamiento de calistenia premium. Diseño mobile-first 3D.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --black: #050505;
+            --card-bg: #0f0f12;
+            --card-bg-light: #1a1a20;
+
+            --gold: #FFD700;
+            --gold-dim: #b39700;
+            --purple: #8000ff;
+            --purple-light: #a855f7;
+
+            --text: #ffffff;
+            --text-muted: #a1a1aa;
+
+            --gradient-gold: linear-gradient(135deg, #FFD700, #FDB931);
+            --gradient-purple: linear-gradient(135deg, #8000ff, #bd00ff);
+            --gradient-mix: linear-gradient(135deg, #FFD700, #8000ff);
+
+            --shadow-gold: 0 10px 30px -10px rgba(255, 215, 0, 0.3);
+            --shadow-purple: 0 10px 30px -10px rgba(128, 0, 255, 0.4);
+
+            --radius: 24px;
+            --nav-height: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            padding-bottom: calc(var(--nav-height) + 20px);
+            /* Espacio para el nav inferior */
+        }
+
+        /* --- 3D Card System --- */
+        .card-3d {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 24px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 20px;
+        }
+
+        /* Efecto de borde gradiente 3D */
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: calc(var(--radius) + 1px);
+            padding: 1px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .card-3d.gold-glow {
+            box-shadow: var(--shadow-gold);
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .card-3d.purple-glow {
+            box-shadow: var(--shadow-purple);
+            border-top: 1px solid rgba(128, 0, 255, 0.3);
+        }
+
+        .card-3d:active {
+            transform: scale(0.98);
+        }
+
+        /* --- Typography --- */
+        h1,
+        h2,
+        h3 {
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .text-gold {
+            color: var(--gold);
+        }
+
+        .text-purple {
+            color: var(--purple-light);
+        }
+
+        .gradient-text-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-purple {
+            background: var(--gradient-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- Layout --- */
+        .container {
+            padding: 0 20px;
+            max-width: 600px;
+            /* Mobile focused max-width */
+            margin: 0 auto;
+        }
+
+        /* --- Bottom Navigation (One Handed) --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 40px);
+            max-width: 560px;
+            height: 70px;
+            background: rgba(15, 15, 18, 0.85);
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 10px;
+            text-decoration: none;
+            gap: 4px;
+            transition: all 0.3s;
+        }
+
+        .nav-item.active {
+            color: var(--gold);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
+
+        .nav-cta {
+            background: var(--gradient-gold);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-weight: 900;
+            font-size: 24px;
+            margin-top: -30px;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            border: 4px solid var(--black);
+        }
+
+        /* --- Hero Section (Video Predominant) --- */
+        .hero {
+            height: 85vh;
+            position: relative;
+            border-radius: 0 0 var(--radius) var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .hero-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--black) 10%, transparent 80%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            transform: translateZ(20px);
+            /* 3D hint */
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(128, 0, 255, 0.2);
+            border: 1px solid var(--purple);
+            color: var(--purple-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+            font-size: 18px;
+        }
+
+        .btn-main {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient-gold);
+            color: var(--black);
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            border-radius: 16px;
+            text-decoration: none;
+            font-size: 16px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .btn-main:active {
+            transform: scale(0.96);
+        }
+
+        /* --- Section: Problem (Agitation) --- */
+        .problem-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 16px;
+            padding: 10px 20px 30px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .problem-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .problem-card {
+            min-width: 280px;
+            scroll-snap-align: center;
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .problem-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* --- Section: Solution / Services (From Brutalist) --- */
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .service-card {
+            background: var(--card-bg-light);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(128, 0, 255, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 16px;
+            margin-top: 10px;
+            color: var(--white);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+            background: rgba(128, 0, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--purple-light);
+            font-size: 24px;
+        }
+
+        /* --- Section: Programs (3D Stack) --- */
+        .program-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, var(--card-bg), #151515);
+        }
+
+        .program-info h3 {
+            font-size: 20px;
+            margin-bottom: 4px;
+        }
+
+        .program-tag {
+            font-size: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .program-arrow {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+        }
+
+        /* --- Section: Process (Steps) --- */
+        .step-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .step-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 50px;
+            bottom: -20px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--purple), transparent);
+            opacity: 0.3;
+        }
+
+        .step-num {
+            width: 42px;
+            height: 42px;
+            background: var(--black);
+            border: 2px solid var(--purple);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--purple-light);
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(128, 0, 255, 0.2);
+        }
+
+        /* --- Section: Pricing (Gold Contrast) --- */
+        .pricing-card {
+            background: linear-gradient(135deg, #111, #000);
+            border: 1px solid var(--gold);
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--gold);
+            margin: 20px 0;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .price-btn {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            width: 100%;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        /* --- Section: FAQ (Accordion) --- */
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* --- 3D Floating Elements --- */
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        .orb-1 {
+            width: 200px;
+            height: 200px;
+            background: var(--purple);
+            top: 20%;
+            right: -50px;
+        }
+
+        .orb-2 {
+            width: 150px;
+            height: 150px;
+            background: var(--gold);
+            bottom: 30%;
+            left: -30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background Orbs -->
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+
+    <!-- HERO SECTION (Video Predominant) -->
+    <header class="hero">
+        <!-- Placeholder for Video -->
+        <div style="background: #111; position: absolute; inset:0; z-index:0;">
+            <!-- Simulación de video con gradiente animado -->
+            <div
+                style="width:100%; height:100%; background: radial-gradient(circle at 50% 50%, #222, #000); opacity: 0.8;">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <span class="hero-tag">MOBILE FIRST TRAINING</span>
+            <h1>TRANSFORMA<br><span class="gradient-text-gold">TU CUERPO</span></h1>
+            <p>Sin gimnasio. Sin excusas. Resultados reales con calistenia estructurada.</p>
+            <a href="#pricing" class="btn-main">EMPEZAR AHORA</a>
+        </div>
+    </header>
+
+    <!-- PROBLEM SECTION (Horizontal Scroll Cards) -->
+    <section class="container" style="margin-bottom: 40px;">
+        <h2>¿Te sientes estancado?</h2>
+        <div class="problem-scroll">
+            <div class="card-3d problem-card">
+                <span class="problem-icon">🛑</span>
+                <h3>Sin Progreso</h3>
+                <p>Entrenas duro pero no ves cambios físicos ni de fuerza.</p>
+            </div>
+            <div class="card-3d problem-card">
+                <span class="problem-icon">🧩</span>
+                <h3>Confusión</h3>
+                <p>Demasiada información en redes y no sabes qué rutina seguir.</p>
+            </div>
+            <div class="card-3d problem-card">
+                <span class="problem-icon">🤕</span>
+                <h3>Dolores</h3>
+                <p>Intentas trucos avanzados sin base y te lesionas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUTION / SERVICES (Grid 2col) -->
+    <section class="container" style="margin-bottom: 60px;">
+        <h2>La Solución 3D</h2>
+        <p style="margin-bottom: 20px;">Un sistema probado que combina fuerza, técnica y movilidad.</p>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">💪</div>
+                <h3>Fuerza Real</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤸</div>
+                <h3>Skills</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🥗</div>
+                <h3>Nutrición</h3>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Mindset</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRAMS (Stacked Cards) -->
+    <section class="container" style="margin-bottom: 60px;">
+        <h2>Elige tu Camino</h2>
+
+        <div class="card-3d program-card gold-glow">
+            <div class="program-info">
+                <span class="program-tag">PRINCIPIANTE</span>
+                <h3>Fundamentos</h3>
+                <p style="font-size: 14px;">Domina tu peso corporal</p>
+            </div>
+            <div class="program-arrow">➔</div>
+        </div>
+
+        <div class="card-3d program-card purple-glow">
+            <div class="program-info">
+                <span class="program-tag">INTERMEDIO</span>
+                <h3>Muscle-Up Pro</h3>
+                <p style="font-size: 14px;">Potencia y técnica</p>
+            </div>
+            <div class="program-arrow">➔</div>
+        </div>
+
+        <div class="card-3d program-card">
+            <div class="program-info">
+                <span class="program-tag">AVANZADO</span>
+                <h3>Handstand God</h3>
+                <p style="font-size: 14px;">Equilibrio absoluto</p>
+            </div>
+            <div class="program-arrow">➔</div>
+        </div>
+    </section>
+
+    <!-- PROCESS (Vertical Steps) -->
+    <section class="container" style="margin-bottom: 60px;">
+        <h2>Cómo Funciona</h2>
+
+        <div class="step-item">
+            <div class="step-num">1</div>
+            <div>
+                <h3>Elige tu Plan</h3>
+                <p>Selecciona el programa acorde a tu nivel actual.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-num">2</div>
+            <div>
+                <h3>Acceso Inmediato</h3>
+                <p>Entra a la app y visualiza tus rutinas en video HD.</p>
+            </div>
+        </div>
+
+        <div class="step-item">
+            <div class="step-num">3</div>
+            <div>
+                <h3>Entrena y Progresa</h3>
+                <p>Sigue el paso a paso y sube tus videos para corrección.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS (3D Card) -->
+    <section class="container" style="margin-bottom: 60px;">
+        <h2>Resultados Reales</h2>
+        <div class="card-3d" style="background: linear-gradient(135deg, #222, #111);">
+            <div style="display:flex; align-items:center; gap:15px; margin-bottom:15px;">
+                <div style="width:40px; height:40px; background:#333; border-radius:50%;"></div>
+                <div>
+                    <h4 style="color:#fff;">Carlos R.</h4>
+                    <span style="color:var(--gold); font-size:12px;">★★★★★</span>
+                </div>
+            </div>
+            <p>"La interfaz es increíble y el programa de Muscle-Up me funcionó en 4 semanas. Brutal."</p>
+        </div>
+    </section>
+
+    <!-- PRICING (High Contrast) -->
+    <section class="container" id="pricing" style="margin-bottom: 100px;">
+        <h2>Oferta Especial</h2>
+        <div class="card-3d pricing-card gold-glow">
+            <span
+                style="background:var(--gold); color:black; padding:4px 10px; border-radius:10px; font-weight:700; font-size:12px;">BEST
+                SELLER</span>
+            <h3 style="margin-top:15px;">Acceso Total</h3>
+            <div class="price-tag">97€</div>
+            <p>Pago único de por vida</p>
+            <ul style="text-align:left; margin:20px 0; list-style:none; color:#ccc; font-size:14px;">
+                <li style="margin-bottom:10px;">✓ Todos los programas</li>
+                <li style="margin-bottom:10px;">✓ Soporte 24/7</li>
+                <li style="margin-bottom:10px;">✓ Comunidad Privada</li>
+            </ul>
+            <a href="#" class="btn-main">COMPRAR AHORA</a>
+        </div>
+    </section>
+
+    <!-- BOTTOM NAVIGATION (One Handed) -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item">
+            <span class="nav-icon">🏠</span>
+            <span>Inicio</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">🔥</span>
+            <span>Programas</span>
+        </a>
+        <a href="#" class="nav-cta">+</a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">💬</span>
+            <span>Chat</span>
+        </a>
+        <a href="#" class="nav-item">
+            <span class="nav-icon">👤</span>
+            <span>Perfil</span>
+        </a>
+    </nav>
+
+</body>
+
+</html>

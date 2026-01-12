@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Raycast Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #0F1117;
+            --bg-card: #161920;
+            --bg-input: #1C1E26;
+            --text-main: #FFFFFF;
+            --text-muted: #8B949E;
+            --border-color: #2D313A;
+
+            /* Raycast Colors */
+            --ray-red: #FF6363;
+            --ray-red-glow: rgba(255, 99, 99, 0.3);
+
+            --radius-md: 12px;
+            --radius-sm: 6px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        h1 {
+            font-size: clamp(40px, 5vw, 64px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--ray-red);
+            color: #fff;
+            box-shadow: 0 0 15px var(--ray-red-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 25px var(--ray-red-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Keyboard Shortcut Badge */
+        .kbd {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-family: monospace;
+            color: var(--text-muted);
+            margin-left: 8px;
+            min-width: 20px;
+        }
+
+        /* Navbar */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--ray-red);
+            border-radius: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            text-align: center;
+        }
+
+        /* Command Bar Visual */
+        .command-bar {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .cmd-input {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-muted);
+        }
+
+        .cmd-cursor {
+            width: 2px;
+            height: 20px;
+            background: var(--ray-red);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .cmd-list {
+            padding: 8px;
+        }
+
+        .cmd-item {
+            padding: 10px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 6px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .cmd-item.active {
+            background: var(--ray-red);
+            color: #fff;
+        }
+
+        .cmd-item.active .kbd {
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            transition: 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--text-muted);
+        }
+
+        .feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        /* Pricing */
+        .pricing-section {
+            margin-top: 120px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 80px;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .pricing-row:first-child {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .price-tag {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 100px;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                Sons of Calisthenics
+            </div>
+            <nav class="nav-links">
+                <a href="#store">Store</a>
+                <a href="#developer">Developer</a>
+                <a href="#teams">Teams</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#login">Log in</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 style="max-width: 800px; margin: 0 auto 24px;">Supercharged productivity<br>for your training.</h1>
+            <p style="max-width: 600px; margin: 0 auto 40px;">
+                Sons of Calisthenics is a blazingly fast, totally extendable launcher for your fitness journey. It lets
+                you complete tasks, calculate stats, and share progress in seconds.
+            </p>
+
+            <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
+                <a href="#download" class="btn btn-primary">Download for Mac</a>
+                <div style="display: flex; align-items: center; color: var(--text-muted); font-size: 13px;">
+                    v2.0.1 <span style="margin: 0 8px;">•</span> macOS 12+
+                </div>
+            </div>
+
+            <!-- Command Bar Visual -->
+            <div class="command-bar">
+                <div class="cmd-input">
+                    <span style="font-size: 18px;">🔍</span>
+                    <span style="color: #fff;">Start workout...</span>
+                    <div class="cmd-cursor"></div>
+                </div>
+                <div class="cmd-list">
+                    <div class="cmd-item active">
+                        <span>Push Day (Hypertrophy)</span>
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-size: 12px; opacity: 0.8;">Run</span>
+                            <span class="kbd">↵</span>
+                        </div>
+                    </div>
+                    <div class="cmd-item">
+                        <span>Log Nutrition</span>
+                        <span class="kbd">⌘ N</span>
+                    </div>
+                    <div class="cmd-item">
+                        <span>Check PRs</span>
+                        <span class="kbd">⌘ P</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px;">
+                <h2>Extensions</h2>
+                <a href="#" style="color: var(--ray-red); font-size: 14px; font-weight: 600;">Browse Store →</a>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">⚡</div>
+                        <span class="kbd">Top Pick</span>
+                    </div>
+                    <h3>Smart Progress</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Adaptive algorithms that scale volume based on daily
+                        readiness.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📹</div>
+                    </div>
+                    <h3>Video Analysis</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Computer vision feedback for perfect form on every
+                        rep.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">📅</div>
+                    </div>
+                    <h3>Calendar Sync</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Automatically schedule workouts around your busy life.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">🍎</div>
+                    </div>
+                    <h3>Nutrition</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Macro tracking with barcode scanner and meal plans.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">👥</div>
+                    </div>
+                    <h3>Teams</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Share workouts and compete with friends in real-time.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-header">
+                        <div class="feature-icon">⌨️</div>
+                    </div>
+                    <h3>Shortcuts</h3>
+                    <p style="font-size: 14px; margin-bottom: 0;">Control the entire app without lifting your hands from
+                        the bar.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="pricing-section" id="pricing">
+            <h2 style="margin-bottom: 40px;">Pricing</h2>
+
+            <div class="pricing-row">
+                <div>
+                    <h3 style="margin: 0;">Free</h3>
+                    <p style="font-size: 14px; margin: 0; color: var(--text-muted);">For individuals starting out.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span class="price-tag">€0</span>
+                    <a href="#" class="btn btn-secondary">Download</a>
+                </div>
+            </div>
+
+            <div class="pricing-row">
+                <div>
+                    <h3 style="margin: 0; color: var(--ray-red);">Pro</h3>
+                    <p style="font-size: 14px; margin: 0; color: var(--text-muted);">For power users and athletes.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span class="price-tag">€8/mo</span>
+                    <a href="#" class="btn btn-primary">Subscribe</a>
+                </div>
+            </div>
+
+            <div class="pricing-row">
+                <div>
+                    <h3 style="margin: 0;">Team</h3>
+                    <p style="font-size: 14px; margin: 0; color: var(--text-muted);">For coaches and gyms.</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <span class="price-tag">€15/mo</span>
+                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div>© 2026 Sons of Calisthenics</div>
+            <div style="display: flex; gap: 20px;">
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+                <a href="#">Slack</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

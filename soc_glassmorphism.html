@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Transforma Tu Cuerpo Sin Excusas</title>
+    <meta name="description"
+        content="Programa de calistenia online que te lleva de cero a dominar dominadas, muscle-ups y handstands. Resultados reales en 8 semanas.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #4facfe;
+            --warning: #fa709a;
+            --text-dark: #1a202c;
+            --text-light: rgba(255, 255, 255, 0.95);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.18);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Animated background circles */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        body::before {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #f093fb, #764ba2);
+            top: -200px;
+            right: -200px;
+        }
+
+        body::after {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, #4facfe, #667eea);
+            bottom: -300px;
+            left: -300px;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            33% {
+                transform: translate(30px, -50px) scale(1.1);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Glass effect utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            border-radius: 12px;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--text-light);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(250, 112, 154, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px 0 rgba(250, 112, 154, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(18px, 2.5vw, 24px);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-video {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            height: 400px;
+            margin-top: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--text-light);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 80px 0;
+        }
+
+        .problem h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .problem-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .problem-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        .problem-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 80px 0;
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .solution-image {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--text-light);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .solution-text {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .solution h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .solution h3 {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .solution p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+        }
+
+        .benefits-container {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .benefits h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 20px;
+            color: var(--text-light);
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            flex-shrink: 0;
+        }
+
+        .benefit-item h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .benefit-item p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+        }
+
+        .testimonials h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            font-weight: 700;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .author-info p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .before-after {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 16px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        /* Authority Section */
+        .authority {
+            padding: 80px 0;
+        }
+
+        .authority-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .authority-image {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--text-light);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .authority-text {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .authority h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+
+        .authority p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 30px;
+        }
+
+        .credential {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Program Content */
+        .program-content {
+            padding: 80px 0;
+        }
+
+        .program-content h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modules-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .module {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s;
+        }
+
+        .module:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .module-number {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            font-weight: 800;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .module h3 {
+            font-size: 24px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .module p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .module ul {
+            margin-top: 16px;
+            padding-left: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .module li {
+            margin-bottom: 8px;
+        }
+
+        /* Bonus Section */
+        .bonus {
+            padding: 80px 0;
+        }
+
+        .bonus-container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .bonus h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .bonus-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .bonus-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .bonus-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .bonus-item h3 {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+
+        .bonus-item p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bonus-value {
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            color: white;
+            padding: 8px 16px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+        }
+
+        .faq h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            gap: 20px;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+
+        .faq-question {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-wrapper {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .pricing h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            text-align: center;
+            margin-bottom: 60px;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 48px 0 rgba(31, 38, 135, 0.5);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent), var(--warning));
+            color: white;
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 28px;
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .price-period {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--success), var(--primary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .guarantee {
+            background: rgba(79, 172, 254, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(79, 172, 254, 0.3);
+            border-radius: 20px;
+            color: var(--text-light);
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .guarantee h3 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .guarantee p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .final-cta-container {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 60px 40px;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-bottom: 24px;
+            font-weight: 800;
+            color: var(--text-light);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .final-cta p {
+            font-size: clamp(18px, 2.5vw, 24px);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .urgency {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--text-light);
+            padding: 20px;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 40px;
+            display: inline-block;
+            border-radius: 12px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a,
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .solution-content,
+            .authority-content {
+                grid-template-columns: 1fr;
+            }
+
+            .module {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">SONS OF CALISTHENICS</div>
+            <ul class="nav">
+                <li><a href="#problema">El Problema</a></li>
+                <li><a href="#solucion">La Solución</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#precio">Precio</a></li>
+            </ul>
+            <a href="#precio" class="btn btn-primary">Quiero Empezar Ya</a>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <h1>Domina Tu Cuerpo En 8 Semanas Sin Necesitar Un Gimnasio</h1>
+            <p>
+                Programa paso a paso de calistenia que te lleva de cero a conseguir dominadas perfectas,
+                muscle-ups explosivos y handstands estables. Garantizado.
+            </p>
+            <div class="hero-actions">
+                <a href="#precio" class="btn btn-secondary">Quiero Empezar Ya</a>
+                <a href="#solucion" class="btn btn-outline">Ver Cómo Funciona</a>
+            </div>
+            <div class="hero-video">▶</div>
+        </div>
+    </section>
+
+    <!-- 2. PROBLEMA (Agitación) -->
+    <section class="problem" id="problema">
+        <div class="container">
+            <h2>¿Te Suena Familiar Alguna De Estas Situaciones?</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😓</div>
+                    <h3>Estancamiento Total</h3>
+                    <p>Llevas meses intentando hacer tu primera dominada pero parece imposible. Los tutoriales de
+                        YouTube te confunden más de lo que te ayudan.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔄</div>
+                    <h3>Entrenas Sin Estructura</h3>
+                    <p>Vas al parque sin un plan claro. Haces "lo que sale" y no ves progreso. Necesitas un sistema que
+                        funcione.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Has Gastado En Gimnasios</h3>
+                    <p>Cuotas caras, pérdida de tiempo en desplazamientos y sin ver resultados reales. Sabes que hay una
+                        mejor manera.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SOLUCIÓN -->
+    <section class="solution" id="solucion">
+        <div class="container">
+            <div class="solution-content">
+                <div class="solution-image">💪</div>
+                <div class="solution-text">
+                    <h2>Te Presento El Método Estructurado</h2>
+                    <h3>"De Cero A Héroe En 8 Semanas"</h3>
+                    <p>
+                        Un programa diseñado específicamente para personas que quieren resultados reales sin perder
+                        tiempo.
+                        No más improvisar, no más confusión.
+                    </p>
+                    <p>
+                        <strong>Mi metodología única:</strong> Progresiones científicas + Feedback visual +
+                        Ajustes semanales = Resultados garantizados.
+                    </p>
+                    <a href="#precio" class="btn btn-secondary">Quiero Acceder Al Programa</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BENEFICIOS -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-container">
+                <h2>Lo Que Vas A Conseguir (NO Son Solo Ejercicios)</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🎯</div>
+                        <div>
+                            <h3>De 0 A 10 Dominadas Perfectas</h3>
+                            <p>Progresión estructurada que te lleva desde cero fuerza hasta hacer dominadas limpias con
+                                control total.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">⚡</div>
+                        <div>
+                            <h3>Tu Primer Muscle-Up En 8 Semanas</h3>
+                            <p>Técnica explosiva desglosada paso a paso para que consigas este movimiento icónico.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🤸</div>
+                        <div>
+                            <h3>Handstand Estable De 30 Segundos</h3>
+                            <p>Equilibrio y control con una metodología probada que elimina el miedo y la frustración.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">🦾</div>
+                        <div>
+                            <h3>Fuerza Funcional Real</h3>
+                            <p>No solo estética, sino fuerza que puedes usar en tu vida diaria y en cualquier deporte.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">📱</div>
+                        <div>
+                            <h3>Acceso 24/7 Desde Cualquier Lugar</h3>
+                            <p>Entrena cuando quieras, donde quieras. Desde tu móvil, tablet o ordenador.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">👥</div>
+                        <div>
+                            <h3>Comunidad Privada De Apoyo</h3>
+                            <p>Conecta con personas que están en tu misma situación. Motivación y soporte real.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONIOS -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2>Ellos Ya Lo Lograron (Y Tú También Puedes)</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Hace 2 meses no podía hacer ni una dominada. Hoy hice mi primer muscle-up.
+                        El programa es claro, simple y funciona. No me lo creía hasta que lo vi."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <h4>Francisco M.</h4>
+                            <p>Madrid, España</p>
+                        </div>
+                    </div>
+                    <div class="before-after">ANTES: 0 dominadas → DESPUÉS: 12 dominadas + muscle-up</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Perdí 14kg y gané músculo al mismo tiempo siguiendo el plan. La estructura
+                        semanal me quitó la excusa de no saber qué hacer. Cambió mi vida."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <h4>Andrea G.</h4>
+                            <p>Barcelona, España</p>
+                        </div>
+                    </div>
+                    <div class="before-after">ANTES: 89kg → DESPUÉS: 75kg + masa muscular</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Después de años intentando hacer handstand sin éxito, este programa me mostró
+                        exactamente qué estaba haciendo mal. Ahora mantengo 45 segundos sin problema."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">L</div>
+                        <div class="author-info">
+                            <h4>Lucas R.</h4>
+                            <p>Valencia, España</p>
+                        </div>
+                    </div>
+                    <div class="before-after">ANTES: 0 segundos → DESPUÉS: 45 segundos handstand</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. AUTORIDAD -->
+    <section class="authority">
+        <div class="container">
+            <div class="authority-content">
+                <div class="authority-image">👤</div>
+                <div class="authority-text">
+                    <h2>¿Por Qué Deberías Confiar En Mí?</h2>
+                    <p>
+                        Soy Alejandro, entrenador certificado de calistenia con más de 8 años de experiencia
+                        transformando cuerpos sin necesidad de gimnasios.
+                    </p>
+                    <p>
+                        He ayudado a más de 500 personas a conseguir su primera dominada, muscle-up o handstand.
+                        Personas que, como tú, estaban estancadas y frustradas.
+                    </p>
+                    <p>
+                        Mi enfoque se basa en la progresión científica y la simplicidad. Nada de trucos mágicos,
+                        solo un sistema probado que funciona para el 98% de mis alumnos.
+                    </p>
+                    <div class="credentials">
+                        <div class="credential">✓ Certificado Internacional</div>
+                        <div class="credential">✓ +500 Alumnos</div>
+                        <div class="credential">✓ 8 Años Experiencia</div>
+                        <div class="credential">✓ Youtuber 50k+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTENIDO DEL PROGRAMA -->
+    <section class="program-content">
+        <div class="container">
+            <h2>Qué Hay Dentro Del Programa (El Paso A Paso)</h2>
+            <div class="modules-grid">
+                <div class="module">
+                    <div class="module-number">1</div>
+                    <div>
+                        <h3>Semanas 1-2: Fundamentos De Fuerza</h3>
+                        <p>Construimos tu base sólida con ejercicios de empuje, tracción y core.</p>
+                        <ul>
+                            <li>Evaluación inicial de tu nivel</li>
+                            <li>Ejercicios progresivos de fuerza base</li>
+                            <li>Movilidad y prevención de lesiones</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">2</div>
+                    <div>
+                        <h3>Semanas 3-4: Dominadas Dominadas</h3>
+                        <p>Técnica perfecta para conseguir tus primeras dominadas (o mejorar las que ya tienes).</p>
+                        <ul>
+                            <li>Progresiones desde negativas hasta dominadas completas</li>
+                            <li>Variantes para aumentar repeticiones</li>
+                            <li>Corrección de errores comunes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">3</div>
+                    <div>
+                        <h3>Semanas 5-6: Muscle-Up Explosivo</h3>
+                        <p>Desglose completo del muscle-up en fases manejables.</p>
+                        <ul>
+                            <li>Fuerza explosiva y transición</li>
+                            <li>Técnica de balanceo</li>
+                            <li>Progresiones con banda elástica</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="module">
+                    <div class="module-number">4</div>
+                    <div>
+                        <h3>Semanas 7-8: Handstand Estable</h3>
+                        <p>Equilibrio y control para mantener el handstand sin miedo.</p>
+                        <ul>
+                            <li>Alineación corporal correcta</li>
+                            <li>Progresiones desde pared hasta libre</li>
+                            <li>Ejercicios de movilidad de muñecas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BONUS -->
+    <section class="bonus">
+        <div class="container">
+            <div class="bonus-container">
+                <h2>Y Además, Recibes Estos BONUS Gratis</h2>
+                <div class="bonus-grid">
+                    <div class="bonus-item">
+                        <div class="bonus-icon">📖</div>
+                        <h3>Guía De Nutrición Para Calistenia</h3>
+                        <p>Plan de alimentación simple para maximizar tu recuperación y ganar músculo.</p>
+                        <div class="bonus-value">Valor: 47€</div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-icon">📋</div>
+                        <h3>Plantillas De Seguimiento</h3>
+                        <p>Hojas de progreso para que registres tus avances semana a semana.</p>
+                        <div class="bonus-value">Valor: 27€</div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-icon">🎥</div>
+                        <h3>Masterclass: Lesiones Más Comunes</h3>
+                        <p>Cómo prevenir y tratar las lesiones típicas de calistenia.</p>
+                        <div class="bonus-value">Valor: 67€</div>
+                    </div>
+
+                    <div class="bonus-item">
+                        <div class="bonus-icon">👥</div>
+                        <h3>Acceso A Comunidad Privada</h3>
+                        <p>Grupo exclusivo donde compartir dudas, logros y motivación.</p>
+                        <div class="bonus-value">Valor: incalculable</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>Preguntas Frecuentes (Resuelve Tus Dudas)</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">❓</div>
+                        ¿Qué pasa si nunca he hecho calistenia?
+                    </div>
+                    <div class="faq-answer">
+                        Perfecto. El programa está diseñado para principiantes totales. Empiezas desde cero
+                        y vamos subiendo el nivel progresivamente. El 70% de mis alumnos empezaron sin poder
+                        hacer ni una dominada.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">⏰</div>
+                        ¿Cuánto tiempo necesito dedicarle a la semana?
+                    </div>
+                    <div class="faq-answer">
+                        Con 3-4 sesiones de 45-60 minutos a la semana es suficiente. El programa está
+                        diseñado para personas ocupadas que no tienen horas libres.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">🏠</div>
+                        ¿Necesito equipo especial?
+                    </div>
+                    <div class="faq-answer">
+                        Solo una barra de dominadas (puedes comprarla por 20-30€ o usar una del parque)
+                        y ganas de trabajar. Todo lo demás es opcional.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">💪</div>
+                        ¿Funciona si tengo sobrepeso?
+                    </div>
+                    <div class="faq-answer">
+                        Sí, incluyo modificaciones y progresiones adaptadas para cualquier peso. De hecho,
+                        varios de mis mejores casos de éxito empezaron con sobrepeso.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">📱</div>
+                        ¿Cómo accedo al contenido?
+                    </div>
+                    <div class="faq-answer">
+                        Todo está en una plataforma online privada. Accedes desde móvil, tablet u ordenador.
+                        Videos en HD, rutinas descargables y soporte por email.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <div class="faq-icon">🔄</div>
+                        ¿Y si no veo resultados?
+                    </div>
+                    <div class="faq-answer">
+                        Tienes 15 días de garantía total. Si sigues el programa al pie de la letra y no
+                        ves progreso, te devuelvo el 100% de tu dinero. Sin preguntas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. PRECIO Y GARANTÍA -->
+    <section class="pricing" id="precio">
+        <div class="container">
+            <div class="pricing-wrapper">
+                <h2>Elige Tu Plan Y Empieza Hoy</h2>
+                <div class="pricing-cards">
+                    <div class="pricing-card">
+                        <h3>Programa Completo</h3>
+                        <div class="price">€97</div>
+                        <div class="price-period">Pago único - Acceso de por vida</div>
+                        <ul class="pricing-features">
+                            <li>8 semanas de programa estructurado</li>
+                            <li>+50 videos HD explicativos</li>
+                            <li>Acceso de por vida al contenido</li>
+                            <li>Todos los bonus incluidos</li>
+                            <li>Soporte por email</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Comprar Ahora</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="popular-badge">MÁS POPULAR</div>
+                        <h3>Programa + Coaching</h3>
+                        <div class="price">€197</div>
+                        <div class="price-period">Pago único - Acceso de por vida + 8 semanas coaching</div>
+                        <ul class="pricing-features">
+                            <li>Todo del plan básico</li>
+                            <li>Feedback personalizado semanal</li>
+                            <li>Corrección de técnica por video</li>
+                            <li>Ajustes del plan según tu progreso</li>
+                            <li>Soporte prioritario 24/7</li>
+                            <li>Llamada de seguimiento 1-1</li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="width: 100%;">Quiero Coaching Personalizado</a>
+                    </div>
+                </div>
+
+                <div class="guarantee">
+                    <h3>🛡️ Garantía De Satisfacción Total</h3>
+                    <p>
+                        Tienes 15 días para probar el programa sin riesgo. Si no estás satisfecho por
+                        cualquier motivo, te devuelvo tu dinero completo. Es así de simple.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. CTA FINAL -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-container">
+                <h2>No Dejes Que Pase Un Día Más Sin Progresar</h2>
+                <p>
+                    Cada día que esperas es un día menos de resultados. Empieza hoy y en 8 semanas
+                    estarás haciendo cosas que hoy te parecen imposibles.
+                </p>
+                <a href="#precio" class="btn btn-secondary" style="font-size: 20px; padding: 20px 40px;">
+                    SÍ, QUIERO EMPEZAR MI TRANSFORMACIÓN AHORA
+                </a>
+                <div class="urgency">
+                    ⏰ SOLO QUEDAN 7 PLAZAS ESTE MES (El grupo de WhatsApp tiene límite)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sons of Calisthenics</h3>
+                    <p>Transformando cuerpos desde 2016. Coaching online mundial y presencial en Barcelona.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Programas</h3>
+                    <ul>
+                        <li><a href="#">Fundamentos</a></li>
+                        <li><a href="#">Muscle-up</a></li>
+                        <li><a href="#">Handstand</a></li>
+                        <li><a href="#">Coaching 1-1</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Política de Reembolso</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sons of Calisthenics. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

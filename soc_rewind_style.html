@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Rewind Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli.">
+    <style>
+        :root {
+            --bg-body: #000000;
+            --text-main: #FFFFFF;
+            --text-muted: rgba(255, 255, 255, 0.6);
+
+            /* Rewind Colors */
+            --sunset-gradient: linear-gradient(135deg, #FF4D4D 0%, #FF9900 50%, #FF00CC 100%);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-bg-hover: rgba(255, 255, 255, 0.1);
+
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(48px, 6vw, 80px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 19px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--sunset-gradient);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 77, 77, 0.6);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Navbar */
+        header {
+            padding: 24px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 120px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Sunset Glow Orb */
+        .orb {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: var(--sunset-gradient);
+            filter: blur(120px);
+            opacity: 0.3;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(0.9);
+            }
+
+            100% {
+                opacity: 0.4;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 13px;
+            margin-bottom: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-visual {
+            margin-top: 60px;
+            border-radius: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Timeline / Features */
+        .timeline-section {
+            position: relative;
+            padding: 100px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0.1) 80%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .feature-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .feature-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .feature-content {
+            width: 45%;
+        }
+
+        .feature-visual {
+            width: 45%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-marker {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #000;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .feature-row:hover .feature-marker {
+            background: #fff;
+            box-shadow: 0 0 20px #fff;
+        }
+
+        @media (max-width: 900px) {
+            .timeline-line {
+                left: 20px;
+            }
+
+            .feature-row {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-left: 50px;
+            }
+
+            .feature-row:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .feature-content,
+            .feature-visual {
+                width: 100%;
+            }
+
+            .feature-visual {
+                margin-top: 30px;
+            }
+
+            .feature-marker {
+                left: 20px;
+            }
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: 0.3s;
+        }
+
+        .pricing-card:hover {
+            background: var(--glass-bg-hover);
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 16px 0;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 60px 0;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo">Sons of Calisthenics</div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#download">Download</a>
+            </nav>
+            <a href="#login" class="btn btn-glass" style="padding: 8px 20px; font-size: 13px;">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="orb"></div>
+
+        <div class="container">
+            <div class="hero-badge">
+                <span style="width: 8px; height: 8px; background: #FF4D4D; border-radius: 50%;"></span>
+                New: Smart Progress 2.0
+            </div>
+
+            <h1 class="text-gradient">The search engine<br>for your strength.</h1>
+            <p style="max-width: 580px; margin: 0 auto 40px;">
+                A truly personal training system. Rewind your bad habits, fast-forward your gains.
+                The only calisthenics app that feels like magic.
+            </p>
+
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#download" class="btn btn-primary">Download for Mac</a>
+                <a href="#web" class="btn btn-glass">Open Web App</a>
+            </div>
+
+            <div class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
+                    class="hero-img" alt="App Interface">
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Features -->
+    <section class="timeline-section">
+        <div class="timeline-line"></div>
+        <div class="container">
+
+            <div class="feature-row">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3>Perfect Recall</h3>
+                    <p>Track every rep, every set, every second of rest. Our system remembers your performance so you
+                        don't have to.</p>
+                </div>
+                <div class="feature-visual">
+                    <div style="font-family: monospace; font-size: 13px; color: rgba(255,255,255,0.8);">
+                        > Pull-ups: 12 reps<br>
+                        > Rest: 90s<br>
+                        > RPE: 8.5<br>
+                        <span style="color: #FF9900;">> Analyzing form... OK</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3>Visual Analysis</h3>
+                    <p>See your form in a new light. Frame-by-frame breakdown of your technique using advanced computer
+                        vision.</p>
+                </div>
+                <div class="feature-visual">
+                    <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop"
+                        style="width: 100%; border-radius: 8px; opacity: 0.8;">
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-marker"></div>
+                <div class="feature-content">
+                    <h3>Time Travel</h3>
+                    <p>Go back to any workout in your history. Compare your front lever hold from today vs. 6 months
+                        ago.</p>
+                </div>
+                <div class="feature-visual">
+                    <div
+                        style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 8px;">
+                        <span>Jan 2025</span>
+                        <span>Jun 2025</span>
+                    </div>
+                    <div
+                        style="height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; position: relative;">
+                        <div
+                            style="position: absolute; left: 0; top: 0; height: 100%; width: 60%; background: var(--sunset-gradient); border-radius: 2px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="container" style="padding-bottom: 100px;">
+        <h2 style="text-align: center; margin-bottom: 60px;">Simple Pricing</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">€45</div>
+                <p style="font-size: 15px;">One-time session.</p>
+                <a href="#" class="btn btn-glass" style="width: 100%; margin-top: 20px;">Get Started</a>
+            </div>
+            <div class="pricing-card"
+                style="background: rgba(255, 77, 77, 0.05); border-color: rgba(255, 77, 77, 0.3);">
+                <h3 style="color: #FF4D4D;">Pro</h3>
+                <div class="price">€140</div>
+                <p style="font-size: 15px;">4 Sessions + Nutrition.</p>
+                <a href="#" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Unlimited</h3>
+                <div class="price">€299</div>
+                <p style="font-size: 15px;">10 Sessions + Full Access.</p>
+                <a href="#" class="btn btn-glass" style="width: 100%; margin-top: 20px;">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Sons of Calisthenics. Designed in Barcelona.</p>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

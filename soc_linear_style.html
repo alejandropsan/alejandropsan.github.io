@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Linear Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #080808;
+            --text-main: #EEEEEE;
+            --text-muted: #8A8F98;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --primary-glow: rgba(94, 106, 210, 0.5);
+            --accent-gradient: linear-gradient(90deg, #5E6AD2, #C2F5E9);
+
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Stars Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                radial-gradient(1px 1px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 50px 160px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+                radial-gradient(1px 1px at 130px 80px, #fff, rgba(0, 0, 0, 0));
+            background-size: 200px 200px;
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+        }
+
+        h1 {
+            font-size: clamp(48px, 6vw, 80px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 99px;
+            font-weight: 500;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Shimmer Effect */
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+            transition: 0.5s;
+        }
+
+        .btn-text {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .btn-text:hover {
+            color: #fff;
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(8, 8, 8, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Glow behind Hero */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(circle at center, rgba(94, 106, 210, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4px 12px 4px 4px;
+            border-radius: 99px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .hero-badge:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+            color: #fff;
+        }
+
+        .badge-new {
+            background: linear-gradient(90deg, #5E6AD2, #C2F5E9);
+            color: #000;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-size: 11px;
+        }
+
+        .text-gradient {
+            background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Top border glow on hover */
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #fff;
+        }
+
+        /* Visual Section */
+        .visual-section {
+            margin: 120px 0;
+            position: relative;
+        }
+
+        .visual-img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 0 100px rgba(94, 106, 210, 0.1);
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 60px;
+        }
+
+        .pricing-card {
+            padding: 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.01);
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(180deg, rgba(94, 106, 210, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            border-color: rgba(94, 106, 210, 0.3);
+        }
+
+        .price {
+            font-size: 32px;
+            color: #fff;
+            font-weight: 600;
+            margin: 16px 0;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 80px 0;
+            margin-top: 120px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo">Sons of Calisthenics</div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#method">Method</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="#" class="btn-text">Log in</a>
+                <a href="#" class="btn btn-primary" style="padding: 8px 16px; font-size: 13px;">Sign up</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge fade-in-up">
+                <span class="badge-new">New</span>
+                <span>Introducing Smart Progress 2.0</span>
+                <span style="margin-left: 4px;">→</span>
+            </div>
+
+            <h1 class="text-gradient fade-in-up delay-1">Built for athletes<br>who demand perfection.</h1>
+
+            <p class="fade-in-up delay-2" style="max-width: 540px; margin: 0 auto 40px;">
+                The definitive calisthenics methodology. Real strength, aesthetic skills, and total control. Designed
+                for efficiency and precision.
+            </p>
+
+            <div class="fade-in-up delay-3" style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#programs" class="btn btn-primary">Start Training</a>
+                <div style="display: flex; align-items: center; color: var(--text-muted); font-size: 14px;">
+                    <span style="margin-right: 8px;">⌘K</span> to search
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="visual-section fade-in-up delay-3">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
+                    class="visual-img" alt="Interface">
+                <div
+                    style="position: absolute; bottom: -1px; left: 0; width: 100%; height: 100px; background: linear-gradient(to top, var(--bg-body), transparent);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="text-gradient">Precision in every rep.</h2>
+                <p>Engineered to optimize your progress.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Smart Progress™</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">Adaptive algorithm that adjusts difficulty daily based
+                        on your feedback.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Technical Focus</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">4K video library with frame-by-frame analysis for
+                        perfect form.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Cycles</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">Periodization built-in. Work in 6-week cycles to peak
+                        at the right time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Insights</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">Visualize your strength gains with detailed analytics
+                        and charts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⌨️</div>
+                    <h3>Shortcuts</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">Navigate the app with keyboard shortcuts for maximum
+                        speed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌑</div>
+                    <h3>Dark Mode</h3>
+                    <p style="font-size: 15px; margin-bottom: 0;">Designed for focus. Easy on the eyes, day or night.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section (Split) -->
+        <section id="method" style="margin: 160px 0;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                <div>
+                    <h2 class="text-gradient">The Linear Method.</h2>
+                    <p>Most training plans are static PDFs. We built a dynamic system that evolves with you.</p>
+                    <ul style="list-style: none; color: var(--text-muted); font-size: 15px;">
+                        <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #fff;">01</span> Automated progression logic
+                        </li>
+                        <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #fff;">02</span> Deload weeks calculated automatically
+                        </li>
+                        <li style="margin-bottom: 16px; display: flex; align-items: center; gap: 12px;">
+                            <span style="color: #fff;">03</span> Skill acquisition paths
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-card" style="padding: 0; border: none; background: transparent;">
+                    <img src="https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=2069&auto=format&fit=crop"
+                        style="width: 100%; border-radius: 12px; border: 1px solid var(--border-color);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2 class="text-gradient">Simple pricing.</h2>
+                <p>Start for free, upgrade for power.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">€0 <span>/mo</span></div>
+                    <p style="font-size: 14px; margin-bottom: 24px;">For beginners starting out.</p>
+                    <a href="#" class="btn btn-primary"
+                        style="width: 100%; background: transparent; border: 1px solid var(--border-color);">Get
+                        Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Pro</h3>
+                    <div class="price">€140 <span>/pack</span></div>
+                    <p style="font-size: 14px; margin-bottom: 24px;">Workout Domination Pack.</p>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Advanced</h3>
+                    <div class="price">€299 <span>/pack</span></div>
+                    <p style="font-size: 14px; margin-bottom: 24px;">Full coaching experience.</p>
+                    <a href="#" class="btn btn-primary"
+                        style="width: 100%; background: transparent; border: 1px solid var(--border-color);">Contact
+                        Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: #fff;">Sons of Calisthenics</div>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="#">Twitter</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">Discord</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Method</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Brand</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONS OF CALISTHENICS — BRUTAL TRAINING</title>
+    <meta name="description" content="Entrenamiento sin excusas. Calistenia brutal, resultados reales.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&family=IBM+Plex+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --gold: #FFD700;
+            --gold-dark: #B8860B;
+            --silver: #C0C0C0;
+            --white: #E8E8E8;
+            --white-soft: #BEBEBE;
+        }
+
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.4;
+            overflow-x: hidden;
+        }
+
+        /* Brutal Typography */
+        h1,
+        h2,
+        h3 {
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Brutal Header */
+        header {
+            background: var(--black);
+            border-bottom: 4px solid var(--gold);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 24px;
+            color: var(--gold);
+            text-shadow: 0 0 20px var(--gold);
+            letter-spacing: -1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav a:hover {
+            color: var(--gold);
+            border-bottom-color: var(--gold);
+        }
+
+        /* Brutal Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 36px;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 3px solid;
+            transition: all 0.2s;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--black);
+            border-color: var(--gold);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .btn-gold:hover {
+            background: var(--black);
+            color: var(--gold);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .btn-silver {
+            background: var(--silver);
+            color: var(--black);
+            border-color: var(--silver);
+        }
+
+        .btn-silver:hover {
+            background: var(--black);
+            color: var(--silver);
+            box-shadow: 0 0 30px rgba(192, 192, 192, 0.5);
+        }
+
+        /* Hero Brutal */
+        .hero {
+            padding: 80px 0;
+            background:
+                repeating-linear-gradient(0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 215, 0, 0.03) 2px,
+                    rgba(255, 215, 0, 0.03) 4px),
+                var(--black);
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 12px 24px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 30px;
+            border: 3px solid var(--black);
+            box-shadow: 8px 8px 0 var(--gold-dark);
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 120px);
+            line-height: 0.9;
+            margin-bottom: 30px;
+            color: var(--white);
+            text-shadow: 4px 4px 0 var(--gold);
+        }
+
+        .hero h1 .gold {
+            color: var(--gold);
+            text-shadow: 4px 4px 0 var(--gold-dark);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(20px, 3vw, 32px);
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: var(--silver);
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            border: 4px solid var(--gold);
+            padding: 40px;
+            background: rgba(255, 215, 0, 0.05);
+        }
+
+        .stat {
+            border-left: 4px solid var(--silver);
+            padding-left: 20px;
+        }
+
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 64px;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 0 20px var(--gold);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--white-soft);
+            text-transform: uppercase;
+            margin-top: 10px;
+            letter-spacing: 2px;
+        }
+
+        /* Grid Section */
+        .section {
+            padding: 80px 0;
+            border-bottom: 4px solid var(--silver);
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: var(--silver);
+            color: var(--black);
+            padding: 8px 20px;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 72px);
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+
+        .section-title .gold {
+            color: var(--gold);
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--white-soft);
+            max-width: 800px;
+        }
+
+        /* Brutal Grid */
+        .brutal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .brutal-card {
+            border: 4px solid var(--white);
+            padding: 40px;
+            background: var(--black);
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .brutal-card::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            background: linear-gradient(45deg, var(--gold), var(--silver));
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: -1;
+        }
+
+        .brutal-card:hover {
+            transform: translate(-8px, -8px);
+        }
+
+        .brutal-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 120px;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--gold);
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .brutal-card h3 {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .brutal-card p {
+            color: var(--white-soft);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .brutal-card ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .brutal-card li {
+            padding: 12px 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 14px;
+        }
+
+        .brutal-card li::before {
+            content: '▸';
+            color: var(--gold);
+            margin-right: 15px;
+            font-weight: 700;
+        }
+
+        /* Programs Section - Dark */
+        .programs {
+            background: linear-gradient(180deg, #0a0a0a 0%, var(--black) 100%);
+            padding: 80px 0;
+            border-bottom: 4px solid var(--gold);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .program-card {
+            background: var(--black);
+            border: 4px solid var(--silver);
+            padding: 40px;
+            position: relative;
+        }
+
+        .program-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--gold), var(--silver));
+        }
+
+        .program-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 11px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .program-card h3 {
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .program-price {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 72px;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .program-features li {
+            padding: 15px 0;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--white-soft);
+            font-size: 14px;
+        }
+
+        .program-features li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        /* Testimonials - Brutal */
+        .testimonials {
+            background: var(--black);
+            padding: 80px 0;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            border: 4px solid var(--white);
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 120px;
+            color: var(--gold);
+            opacity: 0.2;
+            font-family: 'Archivo Black', sans-serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--white);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+            color: var(--gold);
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .testimonial-role {
+            color: var(--white-soft);
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        /* CTA Brutal */
+        .cta {
+            background: var(--gold);
+            color: var(--black);
+            padding: 100px 0;
+            text-align: center;
+            border-top: 8px solid var(--gold-dark);
+            border-bottom: 8px solid var(--gold-dark);
+        }
+
+        .cta h2 {
+            font-size: clamp(48px, 6vw, 96px);
+            margin-bottom: 30px;
+            line-height: 1;
+        }
+
+        .cta p {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-black {
+            background: var(--black);
+            color: var(--gold);
+            border-color: var(--black);
+        }
+
+        .btn-black:hover {
+            background: transparent;
+            color: var(--black);
+            border-color: var(--black);
+        }
+
+        /* Footer Brutal */
+        footer {
+            background: var(--black);
+            padding: 80px 0 40px;
+            border-top: 4px solid var(--silver);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--white-soft);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            color: var(--white);
+            margin-bottom: 20px;
+            font-family: 'Archivo Black', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--white-soft);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+            color: var(--white-soft);
+            font-size: 12px;
+        }
+
+        /* Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 40px 20px;
+            border: 4px solid var(--white);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .step-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 120px;
+            color: var(--gold);
+            line-height: 1;
+            text-shadow: 0 0 30px var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: var(--white-soft);
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .brutal-grid,
+            .programs-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Glitch Effect on Hover */
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .logo:hover {
+            animation: glitch 0.3s linear;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">SONS OF CALISTHENICS</div>
+                <ul class="nav">
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#programas">PROGRAMAS</a></li>
+                    <li><a href="#proceso">PROCESO</a></li>
+                    <li><a href="#testimonios">RESULTADOS</a></li>
+                </ul>
+                <a href="#comenzar" class="btn btn-gold">COMENZAR</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">NO EXCUSES · PURE STRENGTH</div>
+                <h1>
+                    ENTRENA<br>
+                    <span class="gold">SIN LÍMITES</span>
+                </h1>
+                <p class="hero-subtitle">
+                    CALISTENIA BRUTAL · RESULTADOS REALES
+                </p>
+                <div class="hero-actions">
+                    <a href="#programas" class="btn btn-gold">VER PROGRAMAS</a>
+                    <a href="#proceso" class="btn btn-outline">CÓMO FUNCIONA</a>
+                    <a href="#contacto" class="btn btn-silver">COACHING 1-1</a>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">ALUMNOS ACTIVOS</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">EJERCICIOS HD</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">SATISFACCIÓN</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">SOPORTE PREMIUM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SERVICIOS</span>
+                <h2 class="section-title">
+                    TODO LO QUE <span class="gold">NECESITAS</span>
+                </h2>
+                <p class="section-description">
+                    Coaching personalizado, programas estructurados, biblioteca completa y sesiones presenciales. Sin
+                    rodeos, sin excusas.
+                </p>
+            </div>
+
+            <div class="brutal-grid">
+                <div class="brutal-card">
+                    <div class="card-number">01</div>
+                    <h3>COACHING ONLINE</h3>
+                    <p>
+                        Entrenamiento personalizado one-on-one. Feedback semanal, rutinas adaptadas y seguimiento
+                        constante.
+                    </p>
+                    <ul>
+                        <li>Plan 100% personalizado</li>
+                        <li>Feedback constante</li>
+                        <li>Ajustes semanales</li>
+                        <li>Soporte 24/7</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold">EMPEZAR</a>
+                </div>
+
+                <div class="brutal-card">
+                    <div class="card-number">02</div>
+                    <h3>PROGRAMAS GUIADOS</h3>
+                    <p>
+                        Cursos de 6-8 semanas con objetivos específicos. Videos HD, progresiones claras, acceso
+                        ilimitado.
+                    </p>
+                    <ul>
+                        <li>Progresión estructurada</li>
+                        <li>Videos en HD</li>
+                        <li>Acceso de por vida</li>
+                        <li>Comunidad privada</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">EXPLORAR</a>
+                </div>
+
+                <div class="brutal-card">
+                    <div class="card-number">03</div>
+                    <h3>BIBLIOTECA +150</h3>
+                    <p>
+                        Enciclopedia completa de ejercicios. Desde básicos hasta movimientos avanzados. Todo explicado.
+                    </p>
+                    <ul>
+                        <li>+150 ejercicios HD</li>
+                        <li>Progresiones completas</li>
+                        <li>Técnica perfecta</li>
+                        <li>Actualizaciones gratis</li>
+                    </ul>
+                    <a href="#" class="btn btn-silver">ACCEDER</a>
+                </div>
+
+                <div class="brutal-card">
+                    <div class="card-number">04</div>
+                    <h3>PRESENCIAL BCN</h3>
+                    <p>
+                        Sesiones 1-a-1 en Barcelona. Técnica, correcciones y plan personalizado. Disponibilidad
+                        estacional.
+                    </p>
+                    <ul>
+                        <li>Evaluación física</li>
+                        <li>Corrección técnica</li>
+                        <li>Plan nutricional</li>
+                        <li>Seguimiento completo</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold">CONSULTAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programas">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROGRAMAS</span>
+                <h2 class="section-title">
+                    DOMINA <span class="gold">HABILIDADES REALES</span>
+                </h2>
+                <p class="section-description">
+                    Del punto A al punto B. Sin teoría vacía, solo progresiones probadas y resultados garantizados.
+                </p>
+            </div>
+
+            <div class="programs-grid">
+                <div class="program-card">
+                    <span class="program-badge">PRINCIPIANTE</span>
+                    <h3>FUNDAMENTOS</h3>
+                    <div class="program-price">€49</div>
+                    <ul class="program-features">
+                        <li>8 semanas intensivas</li>
+                        <li>Fuerza base completa</li>
+                        <li>Empuje y tracción</li>
+                        <li>Core y estabilidad</li>
+                        <li>Videos HD explicativos</li>
+                        <li>Acceso ilimitado</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">COMPRAR</a>
+                </div>
+
+                <div class="program-card">
+                    <span class="program-badge">INTERMEDIO</span>
+                    <h3>MUSCLE-UP</h3>
+                    <div class="program-price">€69</div>
+                    <ul class="program-features">
+                        <li>6 semanas específicas</li>
+                        <li>Pull-ups perfectas</li>
+                        <li>Transición explosiva</li>
+                        <li>Fuerza de empuje</li>
+                        <li>Técnica limpia</li>
+                        <li>Comunidad privada</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">COMPRAR</a>
+                </div>
+
+                <div class="program-card">
+                    <span class="program-badge">AVANZADO</span>
+                    <h3>HANDSTAND</h3>
+                    <div class="program-price">€79</div>
+                    <ul class="program-features">
+                        <li>8 semanas de progresión</li>
+                        <li>Equilibrio invertido</li>
+                        <li>Alineación perfecta</li>
+                        <li>Movilidad completa</li>
+                        <li>Control total</li>
+                        <li>Soporte premium</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">COMPRAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="proceso">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">PROCESO</span>
+                <h2 class="section-title">
+                    SIMPLE Y <span class="gold">DIRECTO</span>
+                </h2>
+                <p class="section-description">
+                    Tres pasos para empezar. Sin complicaciones, sin burocracia. Elige, accede, entrena.
+                </p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>ELIGE</h3>
+                    <p>Selecciona el programa o servicio que mejor se adapte a tu nivel y objetivos.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>ACCEDE</h3>
+                    <p>Recibe acceso inmediato a todo el contenido y materiales de entrenamiento.</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>ENTRENA</h3>
+                    <p>Sigue el plan, registra tu progreso y alcanza tus objetivos semana a semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">TESTIMONIOS</span>
+                <h2 class="section-title">
+                    RESULTADOS <span class="gold">BRUTALES</span>
+                </h2>
+                <p class="section-description">
+                    Personas reales, transformaciones reales, resultados verificables. Sin filtros, sin mentiras.
+                </p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Pasé de no poder hacer una dominada a conseguir mi primer muscle-up en 8 semanas. La progresión
+                        es brutal y funciona."
+                    </p>
+                    <div class="testimonial-author">FRANCISCO M.</div>
+                    <div class="testimonial-role">Programa Muscle-up</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Perdí 12kg y gané fuerza al mismo tiempo. El coaching personalizado fue exactamente lo que
+                        necesitaba para romper el estancamiento."
+                    </p>
+                    <div class="testimonial-author">ANDREA G.</div>
+                    <div class="testimonial-role">Coaching Online</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Finalmente conseguí handstand después de años intentándolo. El programa es brutal: directo,
+                        claro y efectivo."
+                    </p>
+                    <div class="testimonial-author">LUCAS R.</div>
+                    <div class="testimonial-role">Handstand Mastery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="comenzar">
+        <div class="container">
+            <h2>¿LISTO PARA EMPEZAR?</h2>
+            <p>
+                SIN EXCUSAS. SIN LÍMITES. SOLO RESULTADOS.
+            </p>
+            <div class="cta-actions">
+                <a href="#programas" class="btn btn-black">VER PROGRAMAS</a>
+                <a href="#contacto" class="btn btn-black">COACHING 1-1</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SONS OF CALISTHENICS</h3>
+                    <p>
+                        Entrenamiento brutal. Sin rodeos, sin excusas. Programas estructurados, coaching personalizado y
+                        una comunidad comprometida con resultados reales.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>PROGRAMAS</h4>
+                    <ul>
+                        <li><a href="#">Fundamentos</a></li>
+                        <li><a href="#">Muscle-up</a></li>
+                        <li><a href="#">Handstand</a></li>
+                        <li><a href="#">Ver todos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>SERVICIOS</h4>
+                    <ul>
+                        <li><a href="#">Coaching Online</a></li>
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="#">Presencial BCN</a></li>
+                        <li><a href="#">Sobre nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>CONTACTO</h4>
+                    <ul>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 SONS OF CALISTHENICS. BRUTAL TRAINING. ALL RIGHTS RESERVED.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

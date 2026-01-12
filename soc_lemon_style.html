@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Lemon Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-body: #0F0F11;
+            --bg-card: #1C1C1F;
+            --bg-card-hover: #252529;
+            --text-main: #FFFFFF;
+            --text-muted: #8A8A93;
+            --border-color: #2E2E32;
+
+            /* Lemon Colors */
+            --lemon-purple: #7047EB;
+            --lemon-purple-hover: #5E3BC7;
+            --lemon-yellow: #FFC233;
+            --lemon-pink: #FF4F99;
+
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --radius-sm: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: clamp(48px, 6vw, 72px);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: clamp(32px, 4vw, 48px);
+            margin-bottom: 16px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--lemon-purple);
+            color: #fff;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--lemon-purple-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: #444;
+        }
+
+        /* Navbar */
+        header {
+            padding: 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 15, 17, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--lemon-yellow);
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 100px;
+            padding-bottom: 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Glow */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(112, 71, 235, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .sticker {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 194, 51, 0.1);
+            color: var(--lemon-yellow);
+            padding: 6px 12px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            border: 1px solid rgba(255, 194, 51, 0.2);
+        }
+
+        .hero-visual {
+            margin-top: 60px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+
+        /* Bento Grid */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--lemon-purple);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* Pricing */
+        .pricing-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: 800;
+            margin: 16px 0;
+            color: #fff;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 24px 0;
+            flex-grow: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .check {
+            color: var(--lemon-yellow);
+            font-weight: 800;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 120px;
+            padding: 80px 0;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: var(--lemon-purple);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo"><span>🍋</span> Sons of Calisthenics</div>
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#blog">Blog</a>
+                <a href="#login">Sign in</a>
+            </nav>
+            <a href="#start" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">Get Started</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="sticker">
+                <span>⚡</span> NEW: Smart Progress 2.0 is live
+            </div>
+
+            <h1>Sell your sweat.<br>Master your body.</h1>
+            <p style="max-width: 600px; margin: 0 auto 40px;">The all-in-one platform for calisthenics athletes.
+                Training, nutrition, and community in one beautiful place.</p>
+
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <a href="#start" class="btn btn-primary">Start Training</a>
+                <a href="#demo" class="btn btn-secondary">View Demo</a>
+            </div>
+
+            <div class="hero-visual">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=2070&auto=format&fit=crop"
+                    class="hero-img" alt="Dashboard">
+            </div>
+        </section>
+
+        <!-- Features Grid -->
+        <section id="features">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2>Everything you need.</h2>
+                <p>Powerful tools to help you grow.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="card" style="grid-column: span 2;">
+                    <div class="card-icon" style="background: rgba(112, 71, 235, 0.1); color: var(--lemon-purple);">🚀
+                    </div>
+                    <h3>Smart Progress</h3>
+                    <p>Our adaptive algorithm ensures you never plateau. It adjusts volume and intensity based on your
+                        daily feedback.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(255, 194, 51, 0.1); color: var(--lemon-yellow);">📊
+                    </div>
+                    <h3>Analytics</h3>
+                    <p>Track every rep, set, and PR with beautiful charts.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon" style="background: rgba(255, 79, 153, 0.1); color: var(--lemon-pink);">🎥
+                    </div>
+                    <h3>4K Video</h3>
+                    <p>Crystal clear tutorials for every movement.</p>
+                </div>
+                <div class="card" style="grid-column: span 2;">
+                    <div class="card-icon">🌍</div>
+                    <h3>Global Community</h3>
+                    <p>Connect with athletes from around the world. Share your progress and get motivated.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" style="margin-top: 120px;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <h2>Simple Pricing.</h2>
+                <p>Start for free, upgrade when you're ready.</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="card pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">€45</div>
+                    <p style="font-size: 14px;">Single Session</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> 1-on-1 Session</li>
+                        <li><span class="check">✓</span> Technique Check</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+                <div class="card pricing-card"
+                    style="border-color: var(--lemon-purple); background: linear-gradient(180deg, rgba(112, 71, 235, 0.05) 0%, rgba(28, 28, 31, 0) 100%);">
+                    <div style="color: var(--lemon-purple); font-weight: 700; font-size: 12px; margin-bottom: 8px;">
+                        RECOMMENDED</div>
+                    <h3>Pro</h3>
+                    <div class="price">€140</div>
+                    <p style="font-size: 14px;">4 Sessions + Nutrition</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> 4 Personal Sessions</li>
+                        <li><span class="check">✓</span> Custom Nutrition Plan</li>
+                        <li><span class="check">✓</span> 24/7 Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Get Started</a>
+                </div>
+                <div class="card pricing-card">
+                    <h3>Scale</h3>
+                    <div class="price">€299</div>
+                    <p style="font-size: 14px;">10 Sessions + Full Access</p>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> 10 Personal Sessions</li>
+                        <li><span class="check">✓</span> Full App Access</li>
+                        <li><span class="check">✓</span> Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;"><span>🍋</span> Sons of Calisthenics</div>
+                    <p style="font-size: 14px;">© 2026 Sons of Calisthenics.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Docs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>

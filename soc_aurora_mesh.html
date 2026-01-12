@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics - Aurora Edition</title>
+    <meta name="description"
+        content="Transforma tu cuerpo con calistenia. Programas personalizados por Diego Cricelli, Campeón Nacional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: #F2F4F6;
+            --bg-white: #FFFFFF;
+
+            --primary: #050505;
+            /* Black */
+            --accent: #556B2F;
+            /* Military Green */
+            --accent-light: #788F4A;
+            --accent-dark: #3A4A20;
+
+            --text-main: #050505;
+            --text-muted: #555555;
+
+            --border-color: rgba(0, 0, 0, 0.1);
+            --border-hover: rgba(85, 107, 47, 0.5);
+
+            --mesh-gradient: radial-gradient(at 0% 0%, hsla(82, 39%, 30%, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(0, 0%, 80%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(82, 39%, 30%, 0.1) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(0, 0%, 90%, 0.2) 0px, transparent 50%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Aurora Mesh Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-light);
+            background-image: var(--mesh-gradient);
+            z-index: -1;
+            filter: blur(60px);
+        }
+
+        /* Animated Mesh Orbs */
+        .mesh-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            opacity: 0.6;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: rgba(85, 107, 47, 0.15);
+            top: -100px;
+            left: -100px;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: rgba(200, 200, 200, 0.2);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: rgba(85, 107, 47, 0.1);
+            top: 40%;
+            left: 60%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(30px, 50px);
+            }
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            line-height: 1;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .text-highlight {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+
+        /* Creative Highlight: Blocky Underline */
+        .text-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: -5px;
+            width: calc(100% + 10px);
+            height: 12px;
+            background: var(--accent);
+            opacity: 0.3;
+            z-index: -1;
+            transform: rotate(-1deg);
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 0;
+            /* Square corners as requested */
+            box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.03);
+            /* Brutalist shadow */
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translate(-5px, -5px);
+            box-shadow: 15px 15px 0 rgba(85, 107, 47, 0.2);
+            border-color: var(--accent);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 0;
+            /* Square */
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+            border: 1px solid var(--accent);
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+            box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-card {
+            width: 100%;
+            border: 1px solid var(--border-color);
+            color: var(--primary);
+            padding: 14px;
+            margin-top: 20px;
+            text-align: center;
+            display: block;
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.5);
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .btn-card:hover {
+            border-color: var(--accent);
+            color: #fff;
+            background: var(--accent);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(242, 244, 246, 0.9);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 0;
+        }
+
+        /* NEW CREATIVE HEADER STYLE */
+        .section-header {
+            text-align: left;
+            /* Left aligned as requested */
+            max-width: 100%;
+            margin: 0 auto 80px;
+            position: relative;
+            padding-left: 40px;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .section-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .section-badge::before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-top: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-size: clamp(48px, 6vw, 80px);
+            margin-bottom: 8px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(56px, 8vw, 90px);
+            line-height: 1;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        .hero-description {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Social Proof Bar */
+        .social-proof-bar {
+            background: #fff;
+            padding: 20px 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .proof-item span {
+            color: var(--accent);
+        }
+
+        /* Problem Section */
+        .paths-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .problem-card {
+            padding: 32px;
+            text-align: left;
+        }
+
+        .problem-icon {
+            font-size: 24px;
+            margin-bottom: 16px;
+            background: rgba(85, 107, 47, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .problem-card h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        /* Smart Progress / App Features */
+        .feature-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .phone-mockup {
+            background: #fff;
+            border-radius: 40px;
+            padding: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .phone-screen {
+            background: #F8F9FA;
+            border-radius: 30px;
+            overflow: hidden;
+            height: 580px;
+            position: relative;
+            border: 1px solid #eee;
+        }
+
+        /* Training Paths (Cards) */
+        .path-card {
+            overflow: hidden;
+        }
+
+        .path-card.featured {
+            border: 2px solid var(--accent);
+        }
+
+        .card-content {
+            padding: 32px;
+        }
+
+        .path-icon {
+            font-size: 24px;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .path-card h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .path-features li {
+            margin-bottom: 8px;
+            display: flex;
+            gap: 10px;
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        .path-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* About Me */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            border-radius: 16px;
+            box-shadow: 20px 20px 0 rgba(85, 107, 47, 0.1);
+        }
+
+        .mission-box {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-main);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Modules / Content */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .module-card {
+            padding: 24px;
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .module-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+            background: rgba(85, 107, 47, 0.1);
+            padding: 4px 10px;
+            border-radius: 6px;
+            height: fit-content;
+        }
+
+        /* Bonuses */
+        .bonus-section {
+            background: #fff;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .bonus-card {
+            padding: 32px;
+            position: relative;
+        }
+
+        .bonus-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--accent);
+            color: #fff;
+            font-weight: 700;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .pricing-card {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.featured {
+            background: #fff;
+            border: 2px solid var(--accent);
+            box-shadow: 0 10px 40px rgba(85, 107, 47, 0.15);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 16px 0;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .pricing-features {
+            margin-bottom: auto;
+        }
+
+        .pricing-features li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 0;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 24px 0;
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+            padding: 0;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 24px;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent);
+        }
+
+        /* Guarantee */
+        .guarantee-box {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Newsletter */
+        .newsletter-card {
+            background: var(--primary);
+            border-radius: 16px;
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            color: #fff;
+        }
+
+        .newsletter-card h2 {
+            color: #fff;
+        }
+
+        .newsletter-card p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--accent-light);
+        }
+
+        /* Contact */
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--primary);
+            transition: 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.1);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: #333;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            text-align: center;
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            background: #fff;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+
+            .feature-split,
+            .about-grid,
+            .contact-container,
+            .newsletter-card {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .newsletter-card {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Animated Orbs -->
+    <div class="mesh-orb orb-1"></div>
+    <div class="mesh-orb orb-2"></div>
+    <div class="mesh-orb orb-3"></div>
+
+    <header>
+        <div class="container nav-content">
+            <div class="logo">SONS OF CALISTHENICS</div>
+            <a href="#programs" class="btn btn-primary">Empezar Ahora</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content reveal active">
+            <span class="section-badge">AURORA EDITION</span>
+            <h1 class="hero-title">Transforma Tu <br><span class="text-highlight">Cuerpo y Mente</span></h1>
+            <p class="hero-description">La metodología definitiva de calistenia. Fuerza real, habilidades estéticas y
+                control total. Diseñado para la eficiencia.</p>
+            <div class="hero-cta">
+                <a href="#programs" class="btn btn-primary">Ver Programas</a>
+                <a href="#about" class="btn btn-outline">Conoce a Diego</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item"><span class="stat-number">500+</span><span class="stat-label">Alumnos</span>
+                </div>
+                <div class="stat-item"><span class="stat-number">10+</span><span class="stat-label">Años Exp.</span>
+                </div>
+                <div class="stat-item"><span class="stat-number">98%</span><span class="stat-label">Satisfacción</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <div class="social-proof-bar reveal">
+        <div class="proof-item"><span>★★★★★</span> 4.9/5 Valoración Media</div>
+        <div class="proof-item"><span>👥</span> +20,000 Atletas Unidos</div>
+        <div class="proof-item"><span>🛡️</span> Garantía de Resultados</div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">EL PROBLEMA</span>
+                <h2>¿Te Sientes <br><span class="text-highlight">Estancado?</span></h2>
+                <p class="section-subtitle">La mayoría de atletas de calistenia cometen los mismos errores.</p>
+            </div>
+            <div class="paths-grid">
+                <div class="card problem-card reveal delay-100">
+                    <div class="problem-icon">📉</div>
+                    <h4>Estancamiento</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Entrenas duro pero no ves cambios. Sigues con
+                        las mismas repeticiones que hace 6 meses.</p>
+                </div>
+                <div class="card problem-card reveal delay-200">
+                    <div class="problem-icon">🤕</div>
+                    <h4>Lesiones</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Dolores de hombro y codo por mala técnica y
+                        falta de planificación en las cargas.</p>
+                </div>
+                <div class="card problem-card reveal delay-300">
+                    <div class="problem-icon">🧩</div>
+                    <h4>Confusión</h4>
+                    <p style="color: var(--text-muted); font-size: 15px;">Demasiada información en redes. No sabes qué
+                        rutina seguir ni cómo progresar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Progress / App Features -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-split">
+                <div class="feature-text reveal">
+                    <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px;">
+                        <span class="section-badge" style="margin: 0;">TECNOLOGÍA INTELIGENTE</span>
+                        <span
+                            style="background: var(--primary); color: #fff; font-weight: 700; font-size: 10px; padding: 4px 8px; border-radius: 4px;">PRÓXIMAMENTE</span>
+                    </div>
+                    <h3>Tu Entrenador de Bolsillo</h3>
+                    <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 20px;">
+                        No es solo un PDF. Es un sistema vivo. Nuestra plataforma (inspirada en la tecnología de
+                        <strong>Calisteniapp</strong>) adapta tu entrenamiento día a día.
+                    </p>
+                    <ul class="path-features">
+                        <li><strong>Smart Progress™:</strong> El algoritmo ajusta la dificultad según tu feedback.</li>
+                        <li><strong>Técnica Perfecta:</strong> Videos 4K con correcciones detalladas.</li>
+                        <li><strong>Historial Completo:</strong> Visualiza tu evolución con datos reales.</li>
+                    </ul>
+                    <div style="margin-top: 30px;">
+                        <a href="#contact" class="btn btn-primary"
+                            style="width: 100%; text-align: center; display: block; max-width: 400px;">
+                            Unirme a la Lista de Espera
+                            <span
+                                style="display: block; font-size: 11px; font-weight: 500; margin-top: 2px; opacity: 0.9;">(Primeros
+                                100 Planes Gratuitos)</span>
+                        </a>
+                        <p style="font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: left;">*
+                            Plazas limitadas para la versión beta.</p>
+                    </div>
+                </div>
+                <div class="feature-visual reveal">
+                    <!-- CSS Phone Mockup -->
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <div style="padding: 20px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <h4 style="margin: 0; color: #000; font-size: 16px;">Hola, Atleta</h4>
+                                    <div style="width: 30px; height: 30px; background: #eee; border-radius: 50%;"></div>
+                                </div>
+                                <div
+                                    style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span style="font-size: 12px; color: #666;">Muscle Up</span>
+                                        <span
+                                            style="color: var(--accent); font-size: 12px; font-weight: 700;">78%</span>
+                                    </div>
+                                    <div style="background: #eee; height: 6px; border-radius: 3px;">
+                                        <div
+                                            style="background: var(--accent); width: 78%; height: 100%; border-radius: 3px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div
+                                    style="background: #fff; padding: 16px; border-radius: 12px; border: 1px solid #eee; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                                    <span
+                                        style="font-size: 12px; color: #666; display: block; margin-bottom: 8px;">Actividad</span>
+                                    <div style="display: flex; gap: 4px; align-items: flex-end; height: 60px;">
+                                        <div style="flex: 1; height: 30%; background: #eee; border-radius: 2px;"></div>
+                                        <div
+                                            style="flex: 1; height: 50%; background: var(--accent); opacity: 0.6; border-radius: 2px;">
+                                        </div>
+                                        <div style="flex: 1; height: 20%; background: #eee; border-radius: 2px;"></div>
+                                        <div
+                                            style="flex: 1; height: 80%; background: var(--accent); border-radius: 2px;">
+                                        </div>
+                                        <div
+                                            style="flex: 1; height: 40%; background: var(--accent); opacity: 0.4; border-radius: 2px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                style="padding: 20px; text-align: center; margin-top: auto; position: absolute; bottom: 0; width: 100%;">
+                                <div
+                                    style="background: var(--primary); color: #fff; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 14px;">
+                                    Iniciar Sesión</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Paths -->
+    <section id="programs" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">NUESTROS SERVICIOS</span>
+                <h2>Programas de <br><span class="text-highlight">Entrenamiento</span></h2>
+                <p class="section-subtitle">Entrena bajo la metodología de <strong>Diego Cricelli</strong>. Ya sea
+                    online o presencial, tenemos el plan para ti.</p>
+            </div>
+
+            <div class="paths-grid">
+                <!-- Virtual Coaching -->
+                <div class="card path-card featured reveal delay-100">
+                    <div class="card-content">
+                        <div class="path-icon">💻</div>
+                        <h3>Coach Virtual</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Programación
+                            personalizada y asistencia directa de <strong>Diego Cricelli</strong>. Perfecto para quienes
+                            desean recibir orientación de un <strong>Campeón Nacional</strong>.</p>
+                        <ul class="path-features">
+                            <li>Programación personalizada</li>
+                            <li>Revisión semanal</li>
+                            <li>Formación via video</li>
+                            <li>Soporte directo</li>
+                            <li>Disponible mundialmente</li>
+                        </ul>
+                        <a href="#" class="btn btn-card">Comienza a entrenar</a>
+                    </div>
+                </div>
+
+                <!-- Self-Serve -->
+                <div class="card path-card reveal delay-200">
+                    <div class="card-content">
+                        <div class="path-icon">📹</div>
+                        <h3>Formación Autónoma</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Acceso a nuestra
+                            completa biblioteca de tutoriales de video, programas estructurados y guías de
+                            profundización.</p>
+                        <a href="#" class="btn btn-card">Explorar Programas</a>
+                    </div>
+                </div>
+
+                <!-- Face-to-Face -->
+                <div class="card path-card reveal delay-300">
+                    <div class="card-content">
+                        <div class="path-icon">👥</div>
+                        <h3>Entrenamiento Presencial</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 15px;">Entrena directamente
+                            con <strong>Diego Cricelli</strong> en Barcelona. Recibe coaching práctico de un experto.
+                        </p>
+                        <a href="#" class="btn btn-card">Reserva Sesión</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Content -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">LO QUE APRENDERÁS</span>
+                <h2>Contenido del <span class="text-highlight">Programa</span></h2>
+                <p class="section-subtitle">Un sistema paso a paso diseñado para llevarte de 0 a avanzado sin pérdidas
+                    de tiempo.</p>
+            </div>
+            <div class="modules-grid">
+                <div class="card module-card reveal delay-100">
+                    <div class="module-number">01</div>
+                    <div>
+                        <h4>Fundamentos y Biomecánica</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Domina la técnica correcta para evitar
+                            lesiones y maximizar ganancias desde el día 1.</p>
+                    </div>
+                </div>
+                <div class="card module-card reveal delay-200">
+                    <div class="module-number">02</div>
+                    <div>
+                        <h4>Fuerza Base y Acondicionamiento</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Construye los cimientos de acero
+                            necesarios para trucos avanzados.</p>
+                    </div>
+                </div>
+                <div class="card module-card reveal delay-300">
+                    <div class="module-number">03</div>
+                    <div>
+                        <h4>Habilidades Específicas (Skills)</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Progresiones detalladas para Muscle Up,
+                            Front Lever, Planche y Handstand.</p>
+                    </div>
+                </div>
+                <div class="card module-card reveal delay-100">
+                    <div class="module-number">04</div>
+                    <div>
+                        <h4>Programación y Periodización</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Aprende a estructurar tus propios
+                            entrenamientos a largo plazo.</p>
+                    </div>
+                </div>
+                <div class="card module-card reveal delay-200">
+                    <div class="module-number">05</div>
+                    <div>
+                        <h4>Movilidad y Prevención</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Rutinas para mantener tus articulaciones
+                            sanas y flexibles.</p>
+                    </div>
+                </div>
+                <div class="card module-card reveal delay-300">
+                    <div class="module-number">06</div>
+                    <div>
+                        <h4>Mentalidad de Campeón</h4>
+                        <p style="font-size: 14px; color: var(--text-muted);">Estrategias psicológicas para mantener la
+                            disciplina y superar estancamientos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=2070&auto=format&fit=crop"
+                        alt="Diego Cricelli">
+                </div>
+                <div class="about-content reveal">
+                    <span class="section-badge">SOBRE MÍ</span>
+                    <h2>Diego <br><span class="text-highlight">Cricelli</span></h2>
+                    <h3
+                        style="font-size: 14px; color: var(--accent); letter-spacing: 1px; margin-bottom: 20px; text-transform: uppercase; font-weight: 700;">
+                        Calistenia en Barcelona – Entrenador Personal</h3>
+
+                    <div class="mission-box">
+                        <p class="mission-text">MISIÓN: «CAMBIAR LA VIDA DE LAS PERSONAS A TRAVÉS DEL DEPORTE»</p>
+                    </div>
+
+                    <div class="about-text-block">
+                        <h4>Quién Soy</h4>
+                        <p style="color: var(--text-muted);">Mi nombre es Diego Cricelli y soy el fundador de Sons Of
+                            Calisthenics. Atleta, entrenador personal y firme creyente del poder transformador del
+                            movimiento.</p>
+                    </div>
+
+                    <div class="about-text-block">
+                        <h4>Mi Trayectoria</h4>
+                        <ul style="color: var(--text-muted); font-size: 14px;">
+                            <li>• Más de 10 años practicando y enseñando Calistenia.</li>
+                            <li>• <strong>Campeón de Street Lifting K&Q RM All4</strong>.</li>
+                            <li>• Creador de <strong>Masters of Handstand</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <a href="#contact" class="btn btn-primary">Consultoría gratuita</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonuses -->
+    <section class="section bonus-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">BONUS EXCLUSIVOS</span>
+                <h2>Lleva tu entrenamiento al <br><span class="text-highlight">Siguiente Nivel</span></h2>
+            </div>
+            <div class="pricing-grid">
+                <div class="card bonus-card reveal">
+                    <span class="bonus-tag">GRATIS</span>
+                    <h3 style="font-size: 18px;">Comunidad Privada</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">Acceso a nuestro grupo
+                        exclusivo de Discord.</p>
+                    <p style="font-weight: 700; color: var(--accent); font-size: 14px;">Valorado en 97€ <span
+                            style="text-decoration: line-through; color: #999; margin-left: 5px;">HOY 0€</span></p>
+                </div>
+                <div class="card bonus-card reveal delay-100">
+                    <span class="bonus-tag">GRATIS</span>
+                    <h3 style="font-size: 18px;">Guía de Nutrición</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">Optimiza tu combustible
+                        para rendir al máximo.</p>
+                    <p style="font-weight: 700; color: var(--accent); font-size: 14px;">Valorado en 49€ <span
+                            style="text-decoration: line-through; color: #999; margin-left: 5px;">HOY 0€</span></p>
+                </div>
+                <div class="card bonus-card reveal delay-200">
+                    <span class="bonus-tag">GRATIS</span>
+                    <h3 style="font-size: 18px;">Masterclass de Movilidad</h3>
+                    <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 10px;">Sesión intensiva para
+                        desbloquear tus caderas y hombros.</p>
+                    <p style="font-weight: 700; color: var(--accent); font-size: 14px;">Valorado en 29€ <span
+                            style="text-decoration: line-through; color: #999; margin-left: 5px;">HOY 0€</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section pricing-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">ENTRENAMIENTO PRESENCIAL</span>
+                <h2>Programas de <br><span class="text-highlight">Entrenamiento Presencial</span></h2>
+                <p class="section-subtitle">Elige el plan que mejor se adapte a tus necesidades.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Card 1 -->
+                <div class="card pricing-card reveal delay-100">
+                    <h3 style="font-size: 18px;">Sesión Individual</h3>
+                    <div class="pricing-price"><span style="font-size: 24px; vertical-align: top;">€</span>45</div>
+                    <ul class="pricing-features">
+                        <li>1 Sesión Presencial Privada</li>
+                        <li>Plan Personalizado</li>
+                        <li>Asesoramiento Nutricional</li>
+                        <li>Contacto 24/7 (MAX 1 MES)</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline"
+                        style="width: 100%; display: block; text-align: center; margin-top: 20px;">Comprar</a>
+                </div>
+
+                <!-- Card 2 (Featured) -->
+                <div class="card pricing-card featured reveal">
+                    <h3 style="font-size: 18px;">Workout Domination</h3>
+                    <div class="pricing-price"><span style="font-size: 24px; vertical-align: top;">€</span>140</div>
+                    <ul class="pricing-features">
+                        <li>Pack 4 Sesiones Presenciales</li>
+                        <li>Plan Personalizado</li>
+                        <li>Asesoramiento Nutricional</li>
+                        <li>Contacto 24/7 (MAX 1 MES)</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary"
+                        style="width: 100%; display: block; text-align: center; margin-top: 20px;">Comprar</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card pricing-card reveal delay-200">
+                    <h3 style="font-size: 18px;">Advanced Workout</h3>
+                    <div class="pricing-price"><span style="font-size: 24px; vertical-align: top;">€</span>299</div>
+                    <ul class="pricing-features">
+                        <li>Pack 10 Sesiones Presenciales</li>
+                        <li>Plan Personalizado</li>
+                        <li>Asesoramiento Nutricional</li>
+                        <li>Contacto 24/7 (MAX 2 MESES)</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline"
+                        style="width: 100%; display: block; text-align: center; margin-top: 20px;">Comprar</a>
+                </div>
+            </div>
+
+            <!-- Guarantee -->
+            <div class="guarantee-box reveal">
+                <div class="guarantee-icon" style="font-size: 32px;">🛡️</div>
+                <div>
+                    <h4 style="margin-bottom: 4px; font-size: 16px;">Garantía de Satisfacción de 15 Días</h4>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 0;">Si en los primeros 15 días sientes
+                        que este programa no es para ti, te devolvemos el 100% de tu dinero. Sin preguntas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header reveal">
+                <span class="section-badge">DUDAS FRECUENTES</span>
+                <h2>Preguntas <span class="text-highlight">Frecuentes</span></h2>
+            </div>
+
+            <div class="faq-item reveal delay-100">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Necesito experiencia previa?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>No. Nuestros programas cubren desde el nivel cero absoluto (Fundamentos) hasta niveles de
+                        competición.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal delay-200">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué equipamiento necesito?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Para la mayoría de rutinas solo necesitas tu peso corporal, una barra de dominadas y unas
+                        paralelas.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal delay-300">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto tiempo necesito entrenar?
+                    <span class="faq-toggle">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Depende de tu nivel y objetivos, pero la media es de 3 a 5 sesiones por semana, de 45 a 90
+                        minutos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section newsletter-section">
+        <div class="container">
+            <div class="newsletter-card reveal">
+                <div class="newsletter-content">
+                    <div class="newsletter-badge"
+                        style="background: rgba(255,255,255,0.2); color: #fff; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; display: inline-block; margin-bottom: 16px;">
+                        COMUNIDAD VIP</div>
+                    <h2>Desbloquea tu <br><span style="color: #fff; text-decoration: underline;">Verdadero
+                            Potencial</span></h2>
+                    <p style="margin-top: 10px;">Únete a más de 5,000 atletas. Recibe rutinas exclusivas y consejos.</p>
+                </div>
+                <div class="newsletter-form-wrapper">
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" placeholder="Tu mejor email..." required>
+                        </div>
+                        <button type="submit" class="newsletter-btn">Unirme Ahora</button>
+                        <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 10px;">Cero spam.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info reveal">
+                    <h3>Hablemos de tus Objetivos</h3>
+                    <p style="color: var(--text-muted); margin-bottom: 30px;">¿No estás seguro de qué programa es para
+                        ti? Escríbeme.</p>
+                    <div class="contact-item"
+                        style="display: flex; gap: 10px; margin-bottom: 10px; color: var(--primary);">
+                        <div class="contact-icon">📧</div><span>diego@sonsofcalisthenics.com</span>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper reveal delay-100">
+                    <form class="contact-form">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+                            <input type="text" class="form-control" placeholder="Nombre" required>
+                            <input type="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <select class="form-control">
+                                <option>Ganar Masa Muscular</option>
+                                <option>Aprender Habilidades</option>
+                                <option>Perder Peso</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 16px;"><textarea class="form-control" rows="4" placeholder="Mensaje"
+                                required></textarea></div>
+                        <button type="submit" class="btn-submit">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final-cta">
+        <div class="container">
+            <span class="section-badge">EMPIEZA HOY</span>
+            <h2>Tu Viaje en <br><span class="text-highlight">Calistenia</span></h2>
+            <p style="max-width: 600px; margin: 20px auto; color: var(--text-muted);">No esperes el momento perfecto.
+                Toma el control de tu cuerpo y tu mente ahora mismo.</p>
+            <div class="cta-buttons" style="display: flex; gap: 16px; justify-content: center; margin-top: 30px;">
+                <a href="#programs" class="btn btn-primary">Ver Programas</a>
+                <a href="#contact" class="btn btn-outline">Consulta Gratuita</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Sons of Calisthenics. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Animations on Scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 150;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', revealOnScroll);
+            // Trigger once on load
+            revealOnScroll();
+        });
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            const toggle = element.querySelector('.faq-toggle');
+
+            item.classList.toggle('active');
+
+            if (item.classList.contains('active')) {
+                toggle.textContent = '-';
+            } else {
+                toggle.textContent = '+';
+            }
+        }
+    </script>
+</body>
+
+</html>

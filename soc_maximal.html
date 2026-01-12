@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sons of Calisthenics — Maximal Glow Luxury</title>
+    <meta name="description"
+        content="Diseño maximalista premium con dorado, plata y brillos intensos sobre negro profundo.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Playfair+Display:wght@400;600;700;900&family=Montserrat:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --black2: #0a0a0a;
+            --black3: #141414;
+
+            --gold: #FFD700;
+            --gold2: #FFED4E;
+            --gold3: #FFA500;
+            --gold-dark: #B8860B;
+
+            --silver: #E8E8E8;
+            --silver2: #C0C0C0;
+            --silver3: #A8A8A8;
+
+            --white: #FFFFFF;
+            --white-soft: #F5F5F5;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--black);
+            color: var(--silver);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 215, 0, 0.15), transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(192, 192, 192, 0.12), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.08), transparent 50%);
+            pointer-events: none;
+            animation: bgPulse 8s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes bgPulse {
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, var(--gold), transparent);
+            border-radius: 50%;
+            animation: float 15s infinite;
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .particle:nth-child(2n) {
+            background: radial-gradient(circle, var(--silver2), transparent);
+            box-shadow: 0 0 15px var(--silver2);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Ornamental divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    var(--gold) 20%,
+                    var(--silver) 50%,
+                    var(--gold) 80%,
+                    transparent);
+            margin: 80px 0;
+            position: relative;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+
+        .divider::before {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold);
+            font-size: 24px;
+            background: var(--black);
+            padding: 0 20px;
+            text-shadow: 0 0 30px var(--gold);
+        }
+
+        /* Header Maximal */
+        header {
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8));
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--gold), var(--silver), var(--gold)) 1;
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow:
+                0 10px 50px rgba(255, 215, 0, 0.3),
+                0 5px 30px rgba(192, 192, 192, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-icon {
+            width: 70px;
+            height: 70px;
+            background:
+                radial-gradient(circle at 30% 30%, var(--gold2), var(--gold)),
+                linear-gradient(135deg, var(--gold), var(--gold3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--black);
+            box-shadow:
+                0 0 40px rgba(255, 215, 0, 0.6),
+                0 0 80px rgba(255, 215, 0, 0.4),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3);
+            position: relative;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 40px rgba(255, 215, 0, 0.6),
+                    0 0 80px rgba(255, 215, 0, 0.4),
+                    inset 0 2px 10px rgba(255, 255, 255, 0.3);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 60px rgba(255, 215, 0, 0.8),
+                    0 0 120px rgba(255, 215, 0, 0.6),
+                    inset 0 2px 10px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold2), var(--gold), var(--gold3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: var(--silver2);
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: all 0.3s;
+            padding: 10px 0;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--silver));
+            transition: width 0.3s;
+            box-shadow: 0 0 10px var(--gold);
+        }
+
+        .nav a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Buttons Maximal */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 2px;
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), var(--gold3));
+            color: var(--black);
+            border-color: var(--gold2);
+            box-shadow:
+                0 10px 40px rgba(255, 215, 0, 0.4),
+                0 0 20px rgba(255, 215, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-gold:hover {
+            box-shadow:
+                0 15px 60px rgba(255, 215, 0, 0.6),
+                0 0 40px rgba(255, 215, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-silver {
+            background: linear-gradient(135deg, var(--silver), var(--silver3));
+            color: var(--black);
+            border-color: var(--white);
+            box-shadow:
+                0 10px 40px rgba(192, 192, 192, 0.4),
+                0 0 20px rgba(192, 192, 192, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-silver:hover {
+            box-shadow:
+                0 15px 60px rgba(192, 192, 192, 0.6),
+                0 0 40px rgba(192, 192, 192, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow:
+                0 10px 40px rgba(255, 215, 0, 0.5),
+                0 0 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Hero Maximal */
+        .hero {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.2), transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(192, 192, 192, 0.15), transparent 50%);
+            animation: heroRotate 20s linear infinite;
+        }
+
+        @keyframes heroRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(192, 192, 192, 0.2));
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            box-shadow:
+                0 0 30px rgba(255, 215, 0, 0.4),
+                inset 0 0 20px rgba(255, 215, 0, 0.1);
+            animation: labelPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes labelPulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 30px rgba(255, 215, 0, 0.4),
+                    inset 0 0 20px rgba(255, 215, 0, 0.1);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 50px rgba(255, 215, 0, 0.6),
+                    inset 0 0 30px rgba(255, 215, 0, 0.2);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--white), var(--gold2), var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6));
+            animation: titleShine 3s ease-in-out infinite;
+        }
+
+        @keyframes titleShine {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.6));
+            }
+
+            50% {
+                filter: drop-shadow(0 0 80px rgba(255, 215, 0, 0.9));
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(20px, 3vw, 36px);
+            font-weight: 600;
+            background: linear-gradient(90deg, var(--silver), var(--white), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 50px;
+            letter-spacing: 4px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(192, 192, 192, 0.05));
+            border: 2px solid transparent;
+            border-image: linear-gradient(135deg, var(--gold), var(--silver)) 1;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.5),
+                inset 0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        .stat::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+            animation: statShine 3s linear infinite;
+        }
+
+        @keyframes statShine {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .stat-number {
+            position: relative;
+            font-family: 'Cinzel', serif;
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold2), var(--gold), var(--gold3));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6));
+        }
+
+        .stat-label {
+            position: relative;
+            font-size: 12px;
+            color: var(--silver2);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 15px;
+        }
+
+        /* Section Maximal */
+        .section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 10px 25px;
+            background: linear-gradient(135deg, rgba(192, 192, 192, 0.2), rgba(255, 215, 0, 0.2));
+            border: 2px solid var(--silver);
+            color: var(--silver);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(192, 192, 192, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 72px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--white), var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.4));
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--silver2);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Cards Maximal */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(20, 20, 20, 0.9));
+            border: 3px solid transparent;
+            border-image: linear-gradient(135deg, var(--gold), var(--silver), var(--gold)) 1;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.8),
+                0 0 60px rgba(255, 215, 0, 0.4);
+        }
+
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gold), var(--gold3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            box-shadow:
+                0 0 40px rgba(255, 215, 0, 0.6),
+                inset 0 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--gold2), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: var(--silver2);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .card li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--silver);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .card li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 12px;
+        }
+
+        /* Testimonials Maximal */
+        .testimonial {
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(20, 20, 20, 0.95));
+            border: 3px solid transparent;
+            border-image: linear-gradient(135deg, var(--silver), var(--gold)) 1;
+            padding: 50px;
+            position: relative;
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                inset 0 0 40px rgba(192, 192, 192, 0.05);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 120px;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            position: relative;
+            z-index: 1;
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--silver);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 16px;
+            background: linear-gradient(90deg, var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .testimonial-role {
+            color: var(--silver3);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* CTA Maximal */
+        .cta {
+            padding: 120px 0;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.3), transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(192, 192, 192, 0.2), transparent 50%),
+                linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(10, 10, 10, 0.9));
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--gold), var(--silver), var(--gold)) 1;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent 30%),
+                radial-gradient(circle, rgba(192, 192, 192, 0.1), transparent 30%);
+            animation: ctaRotate 15s linear infinite;
+        }
+
+        @keyframes ctaRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 84px);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--gold2), var(--white), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            filter: drop-shadow(0 0 40px rgba(255, 215, 0, 0.5));
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: var(--silver);
+            margin-bottom: 50px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer Maximal */
+        footer {
+            background: linear-gradient(180deg, var(--black), var(--black2));
+            padding: 80px 0 40px;
+            border-top: 3px solid transparent;
+            border-image: linear-gradient(90deg, var(--gold), var(--silver), var(--gold)) 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--gold), var(--silver));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--silver3);
+            line-height: 1.8;
+        }
+
+        .footer-section h4 {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--silver2);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--silver3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Glowing ornaments */
+        .ornament {
+            font-size: 24px;
+            color: var(--gold);
+            text-shadow: 0 0 30px var(--gold);
+            animation: ornamentPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes ornamentPulse {
+
+            0%,
+            100% {
+                opacity: 0.6;
+                text-shadow: 0 0 30px var(--gold);
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 50px var(--gold);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Particles -->
+    <div class="particles" aria-hidden="true">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-icon">S</div>
+                    <div class="logo-text">
+                        <h1>SONS OF CALISTHENICS</h1>
+                        <span>Premium Training Experience</span>
+                    </div>
+                </div>
+                <ul class="nav">
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#programas">Programas</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <a href="#comenzar" class="btn btn-gold">Comenzar Ahora</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">✦ ENTRENAMIENTO PREMIUM ✦</div>
+                <h1>
+                    TRANSFORMA<br>
+                    TU CUERPO
+                </h1>
+                <p class="hero-subtitle">
+                    LUJO • EXCELENCIA • RESULTADOS
+                </p>
+                <div class="hero-actions">
+                    <a href="#programas" class="btn btn-gold">Explorar Programas</a>
+                    <a href="#servicios" class="btn btn-silver">Coaching Premium</a>
+                    <a href="#contacto" class="btn btn-outline">Consulta Gratuita</a>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Alumnos Elite</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Videos Premium</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">98%</div>
+                        <div class="stat-label">Satisfacción Total</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Soporte VIP</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container">
+        <div class="divider"></div>
+    </div>
+
+    <!-- Services -->
+    <section class="section" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ NUESTROS SERVICIOS ✦</span>
+                <h2 class="section-title">Experiencia Premium Completa</h2>
+                <p class="section-description">
+                    Desde coaching personalizado hasta programas estructurados y biblioteca completa.
+                    Todo lo que necesitas para alcanzar la excelencia física.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-icon">💎</div>
+                    <h3>Coaching Elite 1-a-1</h3>
+                    <p>
+                        Entrenamiento personalizado exclusivo con seguimiento intensivo. Rutinas diseñadas
+                        específicamente para ti y ajustes semanales basados en tu progreso.
+                    </p>
+                    <ul>
+                        <li>Plan 100% personalizado</li>
+                        <li>Feedback diario premium</li>
+                        <li>Acceso prioritario 24/7</li>
+                        <li>Ajustes en tiempo real</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">Reservar Ahora</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <h3>Programas Estructurados</h3>
+                    <p>
+                        Cursos premium de 6-8 semanas con objetivos específicos. Videos en alta definición, progresiones
+                        científicas y acceso ilimitado de por vida.
+                    </p>
+                    <ul>
+                        <li>Progresión científica</li>
+                        <li>Videos 4K premium</li>
+                        <li>Acceso de por vida</li>
+                        <li>Comunidad exclusiva</li>
+                    </ul>
+                    <a href="#" class="btn btn-silver" style="width: 100%;">Ver Programas</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏋️</div>
+                    <h3>Biblioteca Premium +150</h3>
+                    <p>
+                        Enciclopedia completa de ejercicios en alta definición. Desde movimientos básicos hasta técnicas
+                        avanzadas, todo perfectamente explicado.
+                    </p>
+                    <ul>
+                        <li>+150 ejercicios HD</li>
+                        <li>Progresiones completas</li>
+                        <li>Análisis biomecánico</li>
+                        <li>Actualizaciones constantes</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline" style="width: 100%;">Acceder</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">⭐</div>
+                    <h3>Presencial VIP Barcelona</h3>
+                    <p>
+                        Sesiones privadas exclusivas en Barcelona. Evaluación física completa, corrección técnica
+                        personalizada y plan nutricional incluido.
+                    </p>
+                    <ul>
+                        <li>Evaluación física completa</li>
+                        <li>Corrección técnica avanzada</li>
+                        <li>Plan nutricional premium</li>
+                        <li>Seguimiento intensivo</li>
+                    </ul>
+                    <a href="#" class="btn btn-gold" style="width: 100%;">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container">
+        <div class="divider"></div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="section" id="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">✦ TESTIMONIOS ✦</span>
+                <h2 class="section-title">Historias de Éxito</h2>
+                <p class="section-description">
+                    Transformaciones reales de personas reales. Resultados verificables, cambios permanentes.
+                </p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "El coaching premium superó todas mis expectativas. En 12 semanas pasé de no poder hacer una
+                        dominada a conseguir 3 muscle-ups consecutivos. La atención personalizada marca la diferencia."
+                    </p>
+                    <div class="testimonial-author">FRANCISCO MARTÍNEZ</div>
+                    <div class="testimonial-role">Coaching Elite Premium</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Perdí 15kg y gané masa muscular al mismo tiempo. El plan nutricional y las rutinas
+                        personalizadas fueron exactamente lo que necesitaba. Una inversión que vale cada euro."
+                    </p>
+                    <div class="testimonial-author">ANDREA GONZÁLEZ</div>
+                    <div class="testimonial-role">Programa Transformación Total</div>
+                </div>
+
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        "Después de años intentando conseguir el handstand, finalmente lo logré con el programa premium.
+                        La progresión es meticulosa y los videos son increíblemente detallados."
+                    </p>
+                    <div class="testimonial-author">LUCAS RODRÍGUEZ</div>
+                    <div class="testimonial-role">Programa Handstand Mastery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="comenzar">
+        <div class="cta-content">
+            <div class="container">
+                <h2>¿Listo Para La Transformación?</h2>
+                <p>
+                    Únete a la élite del entrenamiento. Resultados garantizados, experiencia premium,
+                    atención personalizada. Tu transformación comienza hoy.
+                </p>
+                <div class="cta-actions">
+                    <a href="#programas" class="btn btn-gold">Ver Programas Premium</a>
+                    <a href="#contacto" class="btn btn-silver">Consulta Gratuita VIP</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SONS OF CALISTHENICS</h3>
+                    <p>
+                        Experiencia premium de entrenamiento. Coaching personalizado, programas estructurados
+                        y una comunidad comprometida con la excelencia. Transforma tu cuerpo, eleva tu mente.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Programas</h4>
+                    <ul>
+                        <li><a href="#">Fundamentos Elite</a></li>
+                        <li><a href="#">Muscle-up Premium</a></li>
+                        <li><a href="#">Handstand Mastery</a></li>
+                        <li><a href="#">Ver Todos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Coaching Elite</a></li>
+                        <li><a href="#">Biblioteca Premium</a></li>
+                        <li><a href="#">Presencial VIP</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#">YouTube</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Email VIP</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sons of Calisthenics. Premium Training Experience. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
